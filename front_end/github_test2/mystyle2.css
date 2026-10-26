@@ -1,0 +1,36 @@
+body {
+  background-color: lightblue;
+}
+
+h1 {
+  color: white;
+  text-align: left;
+}
+
+p {
+  font-family: verdana;
+  font-size: 20px;
+}
+.minha-caixa {
+    background-color: lightyellow;
+    border: 2px solid orange;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+}
+#caixa-especial {
+    background-color: lightgreen;
+    border: 2px dashed darkgreen;
+    padding: 15px;
+}.cartao-destaque {
+    background-color: #f9f9f9;
+    border: 2px solid #3498db;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+/*Use Classes (.) quando quiser repetir o mesmo estilo em vários sítios (ex: vários botões vermelhos, vários parágrafos destacados).
+
+Use IDs (#) quando tiver um elemento totalmente único no site que não se repete (ex: o cabeçalho principal do site #topo ou o menu de navegação #menu).
+*/
