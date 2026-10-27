@@ -1,0 +1,20 @@
+/*Use Classes (.) quando quiser repetir o mesmo estilo em vários sítios (ex: vários botões vermelhos, vários parágrafos destacados).
+
+Use IDs (#) quando tiver um elemento totalmente único no site que não se repete (ex: o cabeçalho principal do site #topo ou o menu de navegação #menu).
+*/
+.box1 video {
+    background-color: red;
+    color: rgb(15, 2, 2);
+    padding: 50000px;
+    margin: 200px;
+    border-radius: 20px;
+    position: relative;
+}
+.box2 {
+    background-color: red;
+    color: rgb(15, 2, 2);
+    padding: 200px;
+    margin: 200px;
+    border-radius: 20px;
+    position: relative;
+}
