@@ -23,7 +23,7 @@ public class Ex08 {
         minutos = totalalbseg / 60;
         totalalbseg = totalalbseg % 60;
         segundos = totalalbseg;
-        System.out.println("duração total do album:" + horas + "h" + minutos"m" + segundos + "s");
+
 
 
     }
