@@ -1,113 +1,146 @@
 <!DOCTYPE html>
-<html lang="pt-Pt">
+<html lang="pt">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="../Patas Amigas/media/cao.svg">
-    <link rel="stylesheet" href="../Patas Amigas/mystyle.css">
-    <title>Patas Amigas</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patas Amigas</title>
+  <link rel="icon" type="image/x-icon" href="img/cao.svg">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
- <div class="container"></div><!-- Adicionei uma div com a classe "container" esses atributos apagam toda a pagina falta alterar specs no css -->
-<header>
-<span>Patas</span> <span class="rosa">Amigas</span>
-    <nav>
+
+  <!-- Cabeçalho -->
+  <header>
+    <div class="container header-container">
+      <div class="logo">Patas <span class="rosa">Amigas</span></div>
+      <nav>
         <ul>
-            <li><a href="../Patas Amigas/index.html" target="\_blank">Animais</a></li>
-            <li><a href="../Patas Amigas/servicos.html" target="\_blank">Como adotar</a></li>
-            <li><a href="../Patas Amigas/contato.html" target="\_blank">Visitas</a></li>
-            <li><a href="../Patas Amigas/contato.html" target="\_blank">Contato</a></li>
+          <li><a href="#animais">Animais</a></li>
+          <li><a href="#adotar">Como adotar</a></li>
+          <li><a href="#visitas">Visitas</a></li>
+          <li><a href="#contacto">Contacto</a></li>
         </ul>
-    </nav>
-</header>
-    <section class="hero">
-        <h1>Dá uma casa a quem só precisa de carinho</h1>
-        <p>Somos uma associação do Porto que acolhe cães, gatos e coelhos á espera de uma familia.</p>
-        <a href="#animais" class="btn">Conhecer os animais</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Banner Destaque / Hero -->
+  <section class="hero">
+    <div class="hero-container">
+      <h1>Dá uma casa a quem só precisa de carinho</h1>
+      <p>Somos uma associação do Porto que acolhe cães, gatos e coelhos à espera de uma família.</p>
+      <a href="#animais" class="btn">Conhecer os animais</a>
+    </div>
+  </section>
+
+  <!-- Conteúdo Principal Centrado -->
+  <main class="container">
+
+    <!-- Animais para Adoção -->
+    <section id="animais" class="seccao">
+      <h2>Animais para adoção</h2>
+      <div class="cards-container">
+        
+        <article class="card card-rex">
+          <span class="selo-novo">Novo</span>
+          <img src="img/cao.svg" alt="Cão Rex para adoção">
+          <h3>Rex</h3>
+          <p>Cão, 3 anos. Adora passear e brincar com a bola.</p>
+        </article>
+
+        <article class="card">
+          <img src="img/gato.svg" alt="Gata Mia para adoção">
+          <h3>Mia</h3>
+          <p>Gata, 2 anos. Tranquila, gosta de dormir ao sol.</p>
+        </article>
+
+        <article class="card">
+          <img src="img/coelho.svg" alt="Coelho Tambor para adoção">
+          <h3>Tambor</h3>
+          <p>Coelho, 1 ano. Curioso e muito meigo.</p>
+        </article>
+
+      </div>
     </section>
 
-<h2>Animais disponíveis para adoção</h2>
-    <section>
-
-        <article>
-            <div class="animal-card">
-            <img src="../Patas Amigas/media/cao.svg" alt="Cão">
-            <h3>Rex</h3>
-            <p>Idade: 2 anos</p>
-            <p>Raça: Labrador</p>
-            <p>Descrição: Rex é um cão amigável e brincalhão que adora companhia humana.</p>
-        </div></article>
-        <article>
-        <div class="animal-card">
-            <img src="../Patas Amigas/media/gato.svg" alt="Gato">
-            <h3>Mia</h3>
-            <p>Idade: 1 ano</p>
-            <p>Raça: Siamês</p>
-            <p>Descrição: Mia é uma gata carinhosa e curiosa que adora explorar novos lugares.</p>
-        </div>
-        </article>
-          <article>
-        <div class="animal-card">
-            <img src="../Patas Amigas/media/coelho.svg" alt="Coelho">
-            <h3>Tambor</h3>
-            <p>Idade: 1 ano</p>
-            <p>Raça: Siamês</p>
-            <p>Descrição: Mia é uma gata carinhosa e curiosa que adora explorar novos lugares.</p>
-        </div>
-        </article>
+    <!-- Como Adotar -->
+    <section id="adotar" class="seccao">
+      <h2>Como adotar</h2>
+      <ol class="lista-passos">
+        <li>Escolhe o animal que mais combina contigo.</li>
+        <li>Preenche o formulário de contacto.</li>
+        <li>Visita-nos para o conheceres pessoalmente.</li>
+        <li>Leva o teu novo amigo para casa.</li>
+      </ol>
     </section>
-<h2>Como adotar</h2>
-    <ol>
-        <li>Preencha o formulário de adoção disponível no nosso site.</li>
-        <li>Aguarde a nossa equipa entrar em contacto para agendar uma visita.</li>
-        <li>Durante a visita, poderá conhecer o animal e esclarecer todas as suas dúvidas.</li>
-        <li>Se tudo correr bem, poderá levar o seu novo amigo para casa!</li>
-    </ol>
-<h2>Horário de visitas</h2>
-    <table>. <!-- 6. O horário é uma tabela com `thead` e `tbody` ? o que significa? -->  
-        <tr>
+
+    <!-- Horário de Visitas -->
+    <section id="visitas" class="seccao">
+      <h2>Horário de visitas</h2>
+      <table class="tabela-horarios">
+        <thead>
+          <tr>
             <th>Dia</th>
             <th>Horário</th>
-        </tr>
-        <tr>
-            <td>Segunda a Sexta</td>
-            <td>10:00 - 18:00</td>
-        </tr>
-        <tr>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Segunda a sexta</td>
+            <td>14h00 às 18h00</td>
+          </tr>
+          <tr>
             <td>Sábado</td>
-            <td>10:00 - 14:00</td>
-        </tr>
-        <tr>
+            <td>10h00 às 13h00</td>
+          </tr>
+          <tr>
             <td>Domingo</td>
-            <td>Fechado</td>
-        </tr>
-    </table>
-<h2>Contato</h2>
-    <section id="contato">
+            <td>Encerrado</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="seccao">
+      <h2>Contacto</h2>
+      <div class="form-card">
         <form>
-            <label for="nome">Nome:</label>
+          <div class="form-group">
+            <label for="nome">Nome</label>
             <input type="text" id="nome" name="nome" required>
+          </div>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-        
-        <label for="animal">Animal:</label>
-        <select id="animal" name="animal" required>
-            <option value="">Selecione um animal</option>
-            <option value="cao">Rex</option>
-            <option value="gato">Mia</option>
-            <option value="coelho">Tambor</option>
-        </select>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
 
-        <label for="mensagem">Mensagem:</label>
-        <textarea id="mensagem" name="mensagem" rows="4" required></textarea>
+          <div class="form-group">
+            <label for="animal">Animal</label>
+            <select id="animal" name="animal">
+              <option value="rex">Rex</option>
+              <option value="mia">Mia</option>
+              <option value="tambor">Tambor</option>
+            </select>
+          </div>
 
-        <button type="submit">Enviar</button>
-    </form>
-</section>
-</main>
-<footer>
-    <p>&copy; 2024 Patas Amigas. Todos os direitos reservados.</p>
-</footer>
+          <div class="form-group">
+            <label for="mensagem">Mensagem</label>
+            <textarea id="mensagem" name="mensagem" rows="4"></textarea>
+          </div>
+
+          <button type="submit" class="btn-submit">Enviar</button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Rodapé -->
+  <footer>
+    <p>© 2026 Patas Amigas. Rua das Flores, 123, Porto.</p>
+  </footer>
+
 </body>
 </html>

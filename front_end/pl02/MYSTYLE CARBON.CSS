@@ -1,0 +1,17 @@
+.rosa {
+  color: #e40084;
+}
+.container {
+  display: flex;
+  justify-content: top left;
+  align-items: top left;
+  height: 0vh;
+}
+.animal card {
+  width: 300px;
+  margin: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}

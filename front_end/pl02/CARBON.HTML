@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-Pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="../Patas Amigas/media/cao.svg">
+    <link rel="stylesheet" href="../Patas Amigas/mystyle.css">
+    <title>Patas Amigas</title>
+</head>
+<body>
+ <div class="container"></div><!-- Adicionei uma div com a classe "container" esses atributos apagam toda a pagina falta alterar specs no css -->
+<header>
+<span>Patas</span> <span class="rosa">Amigas</span>
+    <nav>
+        <ul>
+            <li><a href="../Patas Amigas/index.html" target="\_blank">Animais</a></li>
+            <li><a href="../Patas Amigas/servicos.html" target="\_blank">Como adotar</a></li>
+            <li><a href="../Patas Amigas/contato.html" target="\_blank">Visitas</a></li>
+            <li><a href="../Patas Amigas/contato.html" target="\_blank">Contato</a></li>
+        </ul>
+    </nav>
+</header>
+    <section class="hero">
+        <h1>Dá uma casa a quem só precisa de carinho</h1>
+        <p>Somos uma associação do Porto que acolhe cães, gatos e coelhos á espera de uma familia.</p>
+        <a href="#animais" class="btn">Conhecer os animais</a>
+    </section>
+
+<h2>Animais disponíveis para adoção</h2>
+    <section>
+
+        <article>
+            <div class="animal-card">
+            <img src="../Patas Amigas/media/cao.svg" alt="Cão">
+            <h3>Rex</h3>
+            <p>Idade: 2 anos</p>
+            <p>Raça: Labrador</p>
+            <p>Descrição: Rex é um cão amigável e brincalhão que adora companhia humana.</p>
+        </div></article>
+        <article>
+        <div class="animal-card">
+            <img src="../Patas Amigas/media/gato.svg" alt="Gato">
+            <h3>Mia</h3>
+            <p>Idade: 1 ano</p>
+            <p>Raça: Siamês</p>
+            <p>Descrição: Mia é uma gata carinhosa e curiosa que adora explorar novos lugares.</p>
+        </div>
+        </article>
+          <article>
+        <div class="animal-card">
+            <img src="../Patas Amigas/media/coelho.svg" alt="Coelho">
+            <h3>Tambor</h3>
+            <p>Idade: 1 ano</p>
+            <p>Raça: Siamês</p>
+            <p>Descrição: Mia é uma gata carinhosa e curiosa que adora explorar novos lugares.</p>
+        </div>
+        </article>
+    </section>
+<h2>Como adotar</h2>
+    <ol>
+        <li>Preencha o formulário de adoção disponível no nosso site.</li>
+        <li>Aguarde a nossa equipa entrar em contacto para agendar uma visita.</li>
+        <li>Durante a visita, poderá conhecer o animal e esclarecer todas as suas dúvidas.</li>
+        <li>Se tudo correr bem, poderá levar o seu novo amigo para casa!</li>
+    </ol>
+<h2>Horário de visitas</h2>
+    <table>. <!-- 6. O horário é uma tabela com `thead` e `tbody` ? o que significa? -->  
+        <tr>
+            <th>Dia</th>
+            <th>Horário</th>
+        </tr>
+        <tr>
+            <td>Segunda a Sexta</td>
+            <td>10:00 - 18:00</td>
+        </tr>
+        <tr>
+            <td>Sábado</td>
+            <td>10:00 - 14:00</td>
+        </tr>
+        <tr>
+            <td>Domingo</td>
+            <td>Fechado</td>
+        </tr>
+    </table>
+<h2>Contato</h2>
+    <section id="contato">
+        <form>
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        
+        <label for="animal">Animal:</label>
+        <select id="animal" name="animal" required>
+            <option value="">Selecione um animal</option>
+            <option value="cao">Rex</option>
+            <option value="gato">Mia</option>
+            <option value="coelho">Tambor</option>
+        </select>
+
+        <label for="mensagem">Mensagem:</label>
+        <textarea id="mensagem" name="mensagem" rows="4" required></textarea>
+
+        <button type="submit">Enviar</button>
+    </form>
+</section>
+</main>
+<footer>
+    <p>&copy; 2024 Patas Amigas. Todos os direitos reservados.</p>
+</footer>
+</body>
+</html>
