@@ -8,7 +8,7 @@ public class Ex06 {
         Scanner input = new Scanner(System.in);
 
         //Declarar variaveis e iniciar
-        int num1, num2 = 1;
+        int num1, num2;
 
         //ler
         System.out.print("Introduz um numero de incio: ");
@@ -21,7 +21,7 @@ public class Ex06 {
             num1 = num1 + 1;
         }
 
-
+//= serve para abrir a gaveta //true false logica se verdadeiro
         //////   // // //declarar ou iniciar as variaveis
         //SOUT
         //////        //        int num1, num2, resultado;

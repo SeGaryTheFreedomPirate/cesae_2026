@@ -15,13 +15,15 @@ public class Ex07 {
         }
 
 
+
         System.out.println("somatorio: " + soma);
 
 
     }
 }
 
-
+// as chavetas bloquarm o valor numero ++; numero++;++numero;numero--;numero+=2;numero%=3
+// tempo=numero; = soma=num1+ soma +1;
 //////   // // //declarar ou iniciar as variaveis
 //SOUT
 //////        //        int num1, num2, resultado;
