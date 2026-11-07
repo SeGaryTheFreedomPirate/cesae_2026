@@ -7,40 +7,38 @@ public class Ex06 {
 
         Scanner input = new Scanner(System.in);
 
-        int num, aposta, contador = 0, resultado = 0;
+        // Declarar variáveis
+        int numeroSecreto, palpite, contadorTentativas = 0;
 
-        System.out.println("Qual o numero do jogador?: ");
-        num = input.nextInt();
+        // Ler numero do JOGADOR 1
+        System.out.print("[JOGADOR 1] Insira o número secreto (0-100): ");
+        numeroSecreto = input.nextInt();
+
+        // "Limpar a consola"
+        for (int i = 0; i < 100; i++) {
+            System.out.println();
+        }
 
         do {
-            System.out.println("Qual a tua aposta? ");
-            aposta = input.nextInt();   // SWICTH CASE SO PARA IGUALDADES NAO DA PARA USAR NUNCA MAIORES E MENORES //
 
+            // Palpite JOGADOR 2
+            System.out.print("\n[JOGADOR 2] Tenta acertar no número secreto: ");
+            palpite = input.nextInt();
 
-            switch (aposta) {
+            contadorTentativas++;
 
-                case aposta = num:
-                    System.out.println("Certo");
-                    break;
-
-                case aposta < num:
-                    System.out.println("A tua aposta é mais baixa que o meu numero");
-                    break;
-
-                case aposta > num:
-                    System.out.println("A tua aposta é mais alta que o meu numero");
-                    break;
-
-                default:
-                    (num <= 0 || num >= 100);
-                    System.out.println("Operação inválida: ");
-                    break;
+            if (palpite < numeroSecreto) {
+                System.out.println("O teu palpite foi muito baixo. Tenta subir um pouco.");
+            } else if (palpite > numeroSecreto) {
+                System.out.println("O teu palpite foi muito alto. Tenta baixar um pouco.");
             }
-            System.out.println("Nova Tentativa");
-            aposta = input.next();
-        } while (aposta != num);
-    }
 
+        } while (palpite != numeroSecreto);
+
+        System.out.println("\n\nGANHASTE! Acertaste no número secreto: " + numeroSecreto);
+        System.out.println("Foram necessárias "+contadorTentativas+" tentativas!");
+
+    }
 }
 //IMPRIMIR 100 ENTERS NA CONSOLA
 //for (;num <= 100 && num >= 0)
