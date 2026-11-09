@@ -17,7 +17,7 @@ public class Ex03 {
 
         for (int i = 0; i < vetor.length; i++) {   //ele volta a correr mas apenas só a soma
             num = vetor[i];
-            if (num>=vetor[i]) {
+            if (num > vetor[i]) {
                 System.out.print("o numero maior é:" + num);
 
             }
