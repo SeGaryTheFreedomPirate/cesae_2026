@@ -14,15 +14,11 @@ public class Ex03 {
             System.out.print("Qual o numero: [" + i + "]: ");
             vetor[i] = input.nextInt();
         }
-
+        num = vetor[0];
         for (int i = 0; i < vetor.length; i++) {   //ele volta a correr mas apenas só a soma
-            num = vetor[i];
-            if (num > vetor[i]) {
-                System.out.print("o numero maior é:" + num);
-
-            }
+            if (vetor[i]>num) {num= vetor[i];}
         }
-
+        System.out.print("o numero maior é:" + num);
     }
 }
 
