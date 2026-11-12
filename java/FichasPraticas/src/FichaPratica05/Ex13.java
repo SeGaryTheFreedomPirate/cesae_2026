@@ -27,15 +27,6 @@ public class Ex13 {
         }
 
 
-
-
-
-
-
-
-
-
-
         //separar os ciclos de leitura e de impressão
 //IMPRIMIR 100 ENTERS NA CONSOLA
 //for (;num <= 100 && num >= 0)

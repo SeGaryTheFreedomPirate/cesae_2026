@@ -3,9 +3,13 @@ package FichaPratica06;
 import java.util.Scanner;
 
 public class Ex01 {
+
+    /**
+     * não existe return apenas impressao na consola
+     * @param animal esta variavel incorpora a variavel animal introduzido sem ela este paramatero nao funciona
+     */
     public static void fazerBarulho(String animal) {
         switch (animal.toLowerCase()) {
-            case "cão":
             case "cao":
                 System.out.println("Au au au");
                 break;
@@ -34,8 +38,8 @@ public class Ex01 {
         fazerBarulho(animalIntroduzido);
     }
 }
-
-
+//imprime mas nao faz return de dados // html pode ser usado nos comentarios
+// comentar sempre /** passar o rato nas funções
 //separar os ciclos de leitura e de impressão
 //IMPRIMIR 100 ENTERS NA CONSOLA
 //for (;num <= 100 && num >= 0)
