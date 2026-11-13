@@ -2,6 +2,8 @@ package FichaPratica06;
 
 import java.util.Scanner;
 
+import static FichaPratica06.Library.imprimirquadrado;
+
 public class Ex07 {
 
     public static void main(String[] args) {
@@ -14,13 +16,7 @@ public class Ex07 {
         System.out.println("Introduza número de colunas: ");
         limitecolunas=input.nextInt();
 
-
-        int[] array1 = new int[limitecolunas];
-        for (int i = 0; i < vetor.length; i++) {
-            System.out.print("Insira no vetor[" + i + "]: ");
-            vetor[i] = input.nextInt();
-        }
-
+        imprimirquadrado(limitelinhas,limitecolunas,car);
 
     }
 }

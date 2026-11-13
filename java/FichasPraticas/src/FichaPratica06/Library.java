@@ -157,19 +157,19 @@ public class Library {
     }
 
     /**
-     * Função que imprime uma matriz FALTA ACABAR COPIADO DE OUTRO EX
+     * Função que imprime um quadrado
      */
-    public static void imprimirmatriz(int[][] matriz) {
-        for (int linha = 0; linha < matriz.length; linha++) {
-
-            for (int coluna = 0; coluna < matriz[0].length; coluna++) {
-
-                System.out.print(matriz[linha][coluna] + "  ");
+    public static void imprimirquadrado(int linha, int coluna, String car) {
+        for (int i = 0; i < linha; i++) {
+            for (int j = 0; j < coluna; j++) {
+                if (i == 0 || i == linha - 1 || j == 0 || j == coluna - 1) {
+                    System.out.print(car);
+                } else {
+                    System.out.print(" ");
+                }
             }
             System.out.println();
         }
-
-
     }
 
     /**
@@ -246,5 +246,5 @@ public class Library {
 //SWICTH CASE É SEMPRE NO CASO DE SER UM CASO COMPARATIVO ==
 //IF IF IF ELSE
 
-
 }
+
