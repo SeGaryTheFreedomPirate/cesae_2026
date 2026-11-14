@@ -1,0 +1,1798 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="artifact-type" content="narrative">
+  <meta name="design-style" content="briefing">
+  <title>CESAE Viagens — Descubra o mundo connosco</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bs-blue: #0d6efd;
+      --bs-primary: #0d6efd;
+      --bs-primary-hover: #0b5ed7;
+      --bs-primary-rgb: 13, 110, 253;
+      --bs-primary-bg-subtle: #cfe2ff;
+      --bs-primary-border-subtle: #9ec5fe;
+      --bs-primary-text-emphasis: #052c65;
+      --bs-secondary: #6c757d;
+      --bs-secondary-rgb: 108, 117, 125;
+      --bs-success: #198754;
+      --bs-success-bg-subtle: #d1e7dd;
+      --bs-success-border-subtle: #a3cfbb;
+      --bs-success-text-emphasis: #0a3622;
+      --bs-warning: #ffc107;
+      --bs-warning-hover: #ffca2c;
+      --bs-warning-rgb: 255, 193, 7;
+      --bs-danger: #dc3545;
+      --bs-light: #f8f9fa;
+      --bs-light-rgb: 248, 249, 250;
+      --bs-dark: #212529;
+      --bs-dark-rgb: 33, 37, 41;
+      --bs-white: #ffffff;
+      --bs-black: #000000;
+      --bs-body-font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif;
+      --bs-body-font-size: 1rem;
+      --bs-body-line-height: 1.5;
+      --bs-body-color: #212529;
+      --bs-body-bg: #ffffff;
+      --bs-secondary-color: #565e64;
+      --bs-border-color: #dee2e6;
+      --bs-border-radius: 0.375rem;
+      --bs-border-radius-lg: 0.5rem;
+      --bs-border-radius-sm: 0.25rem;
+      --bs-border-radius-pill: 50rem;
+      --bs-box-shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+      --bs-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+      --bs-gutter-x: 1.5rem;
+      --bs-gutter-y: 0;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; overflow-x: clip; }
+    body {
+      margin: 0;
+      font-family: var(--bs-body-font-family);
+      font-size: var(--bs-body-font-size);
+      font-weight: 400;
+      line-height: var(--bs-body-line-height);
+      color: var(--bs-body-color);
+      background-color: var(--bs-body-bg);
+      overflow-x: clip;
+      -webkit-text-size-adjust: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 { margin-top: 0; margin-bottom: 0.5rem; font-weight: 500; line-height: 1.2; }
+    h1 { font-size: calc(1.375rem + 1.5vw); }
+    h2 { font-size: calc(1.325rem + 0.9vw); }
+    h3 { font-size: calc(1.3rem + 0.6vw); }
+    h4 { font-size: calc(1.275rem + 0.3vw); }
+    h5 { font-size: 1.25rem; }
+    p { margin-top: 0; margin-bottom: 1rem; }
+    ul { margin-top: 0; margin-bottom: 1rem; }
+    a { color: var(--bs-primary); text-decoration: underline; }
+    a:hover { color: var(--bs-primary-hover); }
+    img, svg { vertical-align: middle; }
+    :focus-visible { outline: 3px solid var(--bs-primary); outline-offset: 2px; }
+    .bg-dark :focus-visible, .navbar-dark :focus-visible { outline-color: var(--bs-warning); }
+
+    /* Typography helpers */
+    .display-4 { font-size: clamp(2.1rem, 4.2vw, 3.3rem); font-weight: 300; line-height: 1.15; letter-spacing: -0.02em; }
+    .display-5 { font-size: clamp(2rem, 3.2vw, 2.75rem); font-weight: 300; line-height: 1.15; }
+    .lead { font-size: 1.2rem; font-weight: 300; line-height: 1.6; }
+    .small { font-size: 0.875rem; }
+    .fs-1 { font-size: 2.25rem !important; }
+    .fs-4 { font-size: 1.5rem !important; }
+    .fs-5 { font-size: 1.25rem !important; }
+    .fs-6 { font-size: 1rem !important; }
+    .fw-bold { font-weight: 700 !important; }
+    .fw-semibold { font-weight: 600 !important; }
+    .fw-medium { font-weight: 500 !important; }
+    .text-center { text-align: center !important; }
+    .text-start { text-align: left !important; }
+    .text-decoration-none { text-decoration: none !important; }
+    .list-unstyled { padding-left: 0; list-style: none; }
+
+    /* Bootstrap Icons helper */
+    .bi {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+      vertical-align: -0.125em;
+    }
+    .bi svg { width: 1em; height: 1em; fill: currentColor; }
+
+    /* Container & Grid */
+    .container {
+      width: 100%;
+      padding-right: calc(var(--bs-gutter-x) * 0.5);
+      padding-left: calc(var(--bs-gutter-x) * 0.5);
+      margin-right: auto;
+      margin-left: auto;
+    }
+    @media (min-width: 576px) { .container { max-width: 540px; } }
+    @media (min-width: 768px) { .container { max-width: 720px; } }
+    @media (min-width: 992px) { .container { max-width: 960px; } }
+    @media (min-width: 1200px) { .container { max-width: 1140px; } }
+    @media (min-width: 1400px) { .container { max-width: 1320px; } }
+
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: calc(-1 * var(--bs-gutter-y));
+      margin-right: calc(-0.5 * var(--bs-gutter-x));
+      margin-left: calc(-0.5 * var(--bs-gutter-x));
+    }
+    .row > * {
+      flex-shrink: 0;
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      padding-right: calc(var(--bs-gutter-x) * 0.5);
+      padding-left: calc(var(--bs-gutter-x) * 0.5);
+      margin-top: var(--bs-gutter-y);
+    }
+    .col-12 { flex: 0 0 auto; width: 100%; }
+    .col-auto { flex: 0 0 auto; width: auto; }
+    @media (min-width: 576px) {
+      .col-sm-6 { flex: 0 0 auto; width: 50%; }
+    }
+    @media (min-width: 768px) {
+      .col-md-4 { flex: 0 0 auto; width: 33.333333%; }
+      .col-md-5 { flex: 0 0 auto; width: 41.666667%; }
+      .col-md-6 { flex: 0 0 auto; width: 50%; }
+      .col-md-7 { flex: 0 0 auto; width: 58.333333%; }
+    }
+    @media (min-width: 992px) {
+      .col-lg-3 { flex: 0 0 auto; width: 25%; }
+      .col-lg-4 { flex: 0 0 auto; width: 33.333333%; }
+      .col-lg-5 { flex: 0 0 auto; width: 41.666667%; }
+      .col-lg-7 { flex: 0 0 auto; width: 58.333333%; }
+      .col-lg-8 { flex: 0 0 auto; width: 66.666667%; }
+    }
+    .g-3 { --bs-gutter-x: 1rem; --bs-gutter-y: 1rem; }
+    .g-4 { --bs-gutter-x: 1.5rem; --bs-gutter-y: 1.5rem; }
+    .g-5 { --bs-gutter-x: 3rem; --bs-gutter-y: 3rem; }
+
+    /* Flex & Display utilities */
+    .d-block { display: block !important; }
+    .d-none { display: none !important; }
+    .d-flex { display: flex !important; }
+    .d-inline-flex { display: inline-flex !important; }
+    .flex-column { flex-direction: column !important; }
+    .flex-wrap { flex-wrap: wrap !important; }
+    .flex-grow-1 { flex-grow: 1 !important; }
+    .align-items-center { align-items: center !important; }
+    .align-items-stretch { align-items: stretch !important; }
+    .justify-content-center { justify-content: center !important; }
+    .justify-content-between { justify-content: space-between !important; }
+    .gap-1 { gap: 0.25rem !important; }
+    .gap-2 { gap: 0.5rem !important; }
+    .gap-3 { gap: 1rem !important; }
+    .gap-4 { gap: 1.5rem !important; }
+    @media (min-width: 768px) {
+      .d-md-block { display: block !important; }
+      .flex-md-row { flex-direction: row !important; }
+    }
+    @media (min-width: 992px) {
+      .align-items-lg-center { align-items: center !important; }
+    }
+
+    /* Spacing utilities */
+    .m-0 { margin: 0 !important; }
+    .mx-auto { margin-right: auto !important; margin-left: auto !important; }
+    .mt-auto { margin-top: auto !important; }
+    .mt-1 { margin-top: 0.25rem !important; }
+    .mt-2 { margin-top: 0.5rem !important; }
+    .mt-3 { margin-top: 1rem !important; }
+    .mt-4 { margin-top: 1.5rem !important; }
+    .mb-0 { margin-bottom: 0 !important; }
+    .mb-1 { margin-bottom: 0.25rem !important; }
+    .mb-2 { margin-bottom: 0.5rem !important; }
+    .mb-3 { margin-bottom: 1rem !important; }
+    .mb-4 { margin-bottom: 1.5rem !important; }
+    .mb-5 { margin-bottom: 3rem !important; }
+    .me-2 { margin-right: 0.5rem !important; }
+    .me-auto { margin-right: auto !important; }
+    .ms-auto { margin-left: auto !important; }
+    @media (min-width: 992px) { .ms-lg-2 { margin-left: 0.5rem !important; } }
+
+    .p-3 { padding: 1rem !important; }
+    .p-4 { padding: 1.5rem !important; }
+    .px-3 { padding-right: 1rem !important; padding-left: 1rem !important; }
+    .px-4 { padding-right: 1.5rem !important; padding-left: 1.5rem !important; }
+    .py-2 { padding-top: 0.5rem !important; padding-bottom: 0.5rem !important; }
+    .py-3 { padding-top: 1rem !important; padding-bottom: 1rem !important; }
+    .py-4 { padding-top: 1.5rem !important; padding-bottom: 1.5rem !important; }
+    .py-5 { padding-top: 3rem !important; padding-bottom: 3rem !important; }
+    .pt-3 { padding-top: 1rem !important; }
+    .pt-5 { padding-top: 3rem !important; }
+    .pb-3 { padding-bottom: 1rem !important; }
+    .pb-4 { padding-bottom: 1.5rem !important; }
+    @media (min-width: 768px) {
+      .p-md-4 { padding: 1.5rem !important; }
+      .p-md-5 { padding: 3rem !important; }
+    }
+    @media (min-width: 992px) {
+      .py-lg-5 { padding-top: 3.5rem !important; padding-bottom: 3.5rem !important; }
+    }
+
+    /* Sizing & Positioning */
+    .w-100 { width: 100% !important; }
+    .h-100 { height: 100% !important; }
+    .position-relative { position: relative !important; }
+    .position-fixed { position: fixed !important; }
+    .sticky-top { position: sticky; top: 0; z-index: 1020; }
+    .bottom-0 { bottom: 0 !important; }
+    .end-0 { right: 0 !important; }
+    .overflow-hidden { overflow: hidden !important; }
+
+    /* Colors, Backgrounds, Borders & Shadows */
+    .bg-body { background-color: var(--bs-body-bg) !important; }
+    .bg-light { background-color: var(--bs-light) !important; }
+    .bg-dark { background-color: var(--bs-dark) !important; }
+    .bg-primary { background-color: var(--bs-primary) !important; }
+    .bg-primary-subtle { background-color: var(--bs-primary-bg-subtle) !important; }
+    .bg-transparent { background-color: transparent !important; }
+    .text-white { color: var(--bs-white) !important; }
+    .text-white-50 { color: rgba(255, 255, 255, 0.72) !important; }
+    .text-light { color: var(--bs-light) !important; }
+    .text-dark { color: var(--bs-dark) !important; }
+    .text-primary { color: var(--bs-primary) !important; }
+    .text-warning { color: var(--bs-warning) !important; }
+    .text-success { color: var(--bs-success) !important; }
+    .text-body-secondary { color: var(--bs-secondary-color) !important; }
+    .text-bg-primary { color: #fff !important; background-color: var(--bs-primary) !important; }
+    .text-bg-warning { color: #000 !important; background-color: var(--bs-warning) !important; }
+    .text-bg-success { color: #fff !important; background-color: var(--bs-success) !important; }
+    .text-bg-dark { color: #fff !important; background-color: var(--bs-dark) !important; }
+    .bg-dark-subtle { background-color: rgba(255, 255, 255, 0.06) !important; }
+    .bg-opacity-75 { --bs-bg-opacity: 0.75; }
+
+    .border { border: 1px solid var(--bs-border-color) !important; }
+    .border-0 { border: 0 !important; }
+    .border-2 { border-width: 2px !important; }
+    .border-top { border-top: 1px solid var(--bs-border-color) !important; }
+    .border-bottom { border-bottom: 1px solid var(--bs-border-color) !important; }
+    .border-primary { border-color: var(--bs-primary) !important; }
+    .border-primary-subtle { border-color: var(--bs-primary-border-subtle) !important; }
+    .border-secondary { border-color: rgba(255, 255, 255, 0.16) !important; }
+    .rounded { border-radius: var(--bs-border-radius) !important; }
+    .rounded-3 { border-radius: var(--bs-border-radius-lg) !important; }
+    .rounded-circle { border-radius: 50% !important; }
+    .rounded-pill { border-radius: var(--bs-border-radius-pill) !important; }
+    .shadow-sm { box-shadow: var(--bs-box-shadow-sm) !important; }
+    .shadow { box-shadow: var(--bs-box-shadow) !important; }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      min-height: 44px;
+      padding: 0.5rem 1rem;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 500;
+      line-height: 1.4;
+      text-align: center;
+      text-decoration: none;
+      vertical-align: middle;
+      cursor: pointer;
+      user-select: none;
+      border: 1px solid transparent;
+      border-radius: var(--bs-border-radius);
+      transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+    }
+    .btn-sm { min-height: 38px; padding: 0.35rem 0.75rem; font-size: 0.875rem; }
+    .btn-lg { min-height: 48px; padding: 0.625rem 1.35rem; font-size: 1.125rem; border-radius: var(--bs-border-radius-lg); }
+    .btn-primary { color: #fff; background-color: var(--bs-primary); border-color: var(--bs-primary); }
+    .btn-primary:hover { color: #fff; background-color: var(--bs-primary-hover); border-color: #0a58ca; }
+    .btn-secondary { color: #fff; background-color: var(--bs-secondary); border-color: var(--bs-secondary); }
+    .btn-secondary:hover { color: #fff; background-color: #5c636a; border-color: #565e64; }
+    .btn-warning { color: #000; background-color: var(--bs-warning); border-color: var(--bs-warning); }
+    .btn-warning:hover { color: #000; background-color: var(--bs-warning-hover); border-color: #ffc720; }
+    .btn-outline-primary { color: var(--bs-primary); background-color: transparent; border-color: var(--bs-primary); }
+    .btn-outline-primary:hover { color: #fff; background-color: var(--bs-primary); border-color: var(--bs-primary); }
+    .btn-outline-light { color: var(--bs-light); background-color: transparent; border-color: var(--bs-light); }
+    .btn-outline-light:hover { color: #000; background-color: var(--bs-light); border-color: var(--bs-light); }
+
+    .btn-close {
+      width: 2.25rem;
+      height: 2.25rem;
+      padding: 0.25rem;
+      border: 0;
+      border-radius: var(--bs-border-radius);
+      background: transparent;
+      color: inherit;
+      opacity: 0.65;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.35rem;
+      line-height: 1;
+    }
+    .btn-close::before { content: "×"; }
+    .btn-close:hover { opacity: 1; }
+
+    /* Badges */
+    .badge {
+      display: inline-block;
+      padding: 0.35em 0.65em;
+      font-size: 0.78em;
+      font-weight: 700;
+      line-height: 1;
+      text-align: center;
+      white-space: nowrap;
+      vertical-align: baseline;
+      border-radius: var(--bs-border-radius);
+    }
+
+    /* Navbar */
+    .navbar {
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.65rem 0;
+    }
+    .navbar > .container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .navbar-brand {
+      padding-top: 0.3125rem;
+      padding-bottom: 0.3125rem;
+      margin-right: 1rem;
+      font-size: 1.25rem;
+      color: #fff;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .navbar-brand:hover { color: #fff; }
+    .navbar-toggler {
+      padding: 0.4rem 0.75rem;
+      min-height: 44px;
+      min-width: 44px;
+      font-size: 1.25rem;
+      line-height: 1;
+      color: rgba(255, 255, 255, 0.85);
+      background-color: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: var(--bs-border-radius);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .navbar-toggler-icon {
+      display: inline-block;
+      width: 1.4em;
+      height: 1.4em;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 100%;
+      background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba%28255, 255, 255, 0.85%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    }
+    .navbar-collapse { flex-basis: 100%; flex-grow: 1; align-items: center; }
+    .collapse:not(.show) { display: none; }
+    .navbar-nav {
+      display: flex;
+      flex-direction: column;
+      padding-left: 0;
+      margin-bottom: 0;
+      list-style: none;
+      gap: 0.25rem;
+    }
+    .nav-link {
+      display: flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 0.5rem 0.75rem;
+      font-size: 1rem;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.78);
+      text-decoration: none;
+      transition: color 0.15s ease-in-out;
+    }
+    .nav-link:hover, .nav-link:focus, .nav-link.active { color: #ffffff; }
+    @media (min-width: 992px) {
+      .navbar-expand-lg .navbar-toggler { display: none; }
+      .navbar-expand-lg .navbar-collapse { display: flex !important; flex-basis: auto; }
+      .navbar-expand-lg .navbar-nav { flex-direction: row; gap: 0.35rem; }
+    }
+
+    /* Dropdown */
+    .dropdown { position: relative; }
+    .dropdown-toggle::after {
+      display: inline-block;
+      margin-left: 0.4em;
+      vertical-align: 0.2em;
+      content: "";
+      border-top: 0.32em solid;
+      border-right: 0.32em solid transparent;
+      border-bottom: 0;
+      border-left: 0.32em solid transparent;
+    }
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      z-index: 1030;
+      display: none;
+      min-width: 11rem;
+      padding: 0.5rem 0;
+      margin: 0.25rem 0 0;
+      font-size: 0.95rem;
+      color: var(--bs-body-color);
+      list-style: none;
+      background-color: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      border-radius: var(--bs-border-radius);
+      box-shadow: var(--bs-box-shadow);
+    }
+    .dropdown-menu.show { display: block; }
+    .dropdown-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      width: 100%;
+      min-height: 40px;
+      padding: 0.4rem 1rem;
+      font-weight: 400;
+      color: var(--bs-body-color);
+      text-decoration: none;
+      background-color: transparent;
+      border: 0;
+      cursor: pointer;
+    }
+    .dropdown-item:hover, .dropdown-item:focus { color: #1e2125; background-color: #e9ecef; }
+    @media (max-width: 991.98px) {
+      .navbar-nav .dropdown-menu { position: static; float: none; margin-top: 0.25rem; margin-bottom: 0.5rem; }
+    }
+
+    /* Carousel */
+    .carousel { position: relative; }
+    .carousel-inner { position: relative; width: 100%; overflow: hidden; }
+    .carousel-item {
+      position: relative;
+      display: none;
+      width: 100%;
+      transition: opacity 0.45s ease;
+    }
+    .carousel-item.active { display: block; }
+    .carousel-item img { width: 100%; height: 460px; object-fit: cover; display: block; }
+    @media (max-width: 640px) {
+      .carousel-item img { height: 320px; }
+    }
+    .carousel-caption {
+      position: absolute;
+      right: 10%;
+      bottom: 2.5rem;
+      left: 10%;
+      padding: 1rem 1.25rem;
+      color: #fff;
+      text-align: center;
+      background-color: rgba(18, 22, 27, 0.78);
+      border-radius: var(--bs-border-radius-lg);
+      backdrop-filter: blur(4px);
+    }
+    @media (max-width: 640px) {
+      .carousel-caption { right: 5%; left: 5%; bottom: 2.25rem; padding: 0.75rem 0.9rem; }
+      .carousel-caption h3 { font-size: 1.15rem; }
+      .carousel-caption p { font-size: 0.875rem; margin-bottom: 0; }
+    }
+    .carousel-indicators {
+      position: absolute;
+      right: 0;
+      bottom: 0.5rem;
+      left: 0;
+      z-index: 2;
+      display: flex;
+      justify-content: center;
+      gap: 0.4rem;
+      padding: 0;
+      margin: 0 15% 0.5rem;
+      list-style: none;
+    }
+    .carousel-indicators [data-bs-target] {
+      box-sizing: content-box;
+      width: 32px;
+      height: 4px;
+      padding: 6px 0;
+      background-clip: content-box;
+      cursor: pointer;
+      background-color: rgba(255, 255, 255, 0.55);
+      border: 0;
+      transition: background-color 0.25s ease;
+    }
+    .carousel-indicators .active { background-color: #ffc107; }
+    .carousel-control-prev, .carousel-control-next {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 10%;
+      min-width: 44px;
+      padding: 0;
+      color: #fff;
+      background: 0 0;
+      border: 0;
+      opacity: 0.82;
+      cursor: pointer;
+      transition: opacity 0.15s ease;
+    }
+    .carousel-control-prev { left: 0; }
+    .carousel-control-next { right: 0; }
+    .carousel-control-prev:hover, .carousel-control-next:hover { opacity: 1; }
+    .carousel-control-prev-icon, .carousel-control-next-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.4rem;
+      height: 2.4rem;
+      border-radius: 50%;
+      background-color: rgba(18, 22, 27, 0.72);
+      background-repeat: no-repeat;
+      background-position: 50%;
+      background-size: 55% 55%;
+    }
+    .carousel-control-prev-icon {
+      background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3E%3Cpath d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'/%3E%3C/svg%3E");
+    }
+    .carousel-control-next-icon {
+      background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3E%3Cpath d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+    }
+
+    /* Card */
+    .card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      word-wrap: break-word;
+      background-color: #fff;
+      background-clip: border-box;
+      border: 1px solid rgba(0, 0, 0, 0.14);
+      border-radius: var(--bs-border-radius-lg);
+    }
+    .card-header {
+      padding: 0.75rem 1.25rem;
+      margin-bottom: 0;
+      background-color: rgba(33, 37, 41, 0.03);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.14);
+      border-top-left-radius: calc(var(--bs-border-radius-lg) - 1px);
+      border-top-right-radius: calc(var(--bs-border-radius-lg) - 1px);
+    }
+    .card-body { flex: 1 1 auto; padding: 1.25rem; }
+    .card-title { margin-bottom: 0.5rem; }
+
+    /* Accordion */
+    .accordion {
+      --bs-accordion-border-color: var(--bs-border-color);
+      border-radius: var(--bs-border-radius-lg);
+      overflow: hidden;
+    }
+    .accordion-item {
+      background-color: #fff;
+      border: 1px solid var(--bs-accordion-border-color);
+    }
+    .accordion-item:not(:first-of-type) { border-top: 0; }
+    .accordion-header { margin-bottom: 0; }
+    .accordion-button {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      min-height: 52px;
+      padding: 1rem 1.25rem;
+      font-family: inherit;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--bs-body-color);
+      text-align: left;
+      background-color: #fff;
+      border: 0;
+      cursor: pointer;
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+    .accordion-button:not(.collapsed) {
+      color: var(--bs-primary-text-emphasis);
+      background-color: var(--bs-primary-bg-subtle);
+    }
+    .accordion-button::after {
+      flex-shrink: 0;
+      width: 1.25rem;
+      height: 1.25rem;
+      margin-left: 1rem;
+      content: "";
+      background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23212529'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-size: 1.1rem;
+      background-position: center;
+      transition: transform 0.2s ease-in-out;
+    }
+    .accordion-button:not(.collapsed)::after { transform: rotate(-180deg); }
+    .accordion-body { padding: 1.1rem 1.25rem; color: var(--bs-body-color); background-color: #fff; }
+
+    /* Forms */
+    .form-label { display: inline-block; margin-bottom: 0.5rem; }
+    .form-control, .form-select {
+      display: block;
+      width: 100%;
+      min-height: 44px;
+      padding: 0.5rem 0.85rem;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.5;
+      color: var(--bs-body-color);
+      background-color: #fff;
+      background-clip: padding-box;
+      border: 1px solid #ced4da;
+      border-radius: var(--bs-border-radius);
+      transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    }
+    textarea.form-control { min-height: 110px; resize: vertical; }
+    .form-select {
+      padding-right: 2.25rem;
+      appearance: none;
+      background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 0.75rem center;
+      background-size: 16px 12px;
+    }
+    .form-control:focus, .form-select:focus {
+      border-color: #86b7fe;
+      outline: 0;
+      box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+    }
+    .form-check { display: flex; align-items: flex-start; gap: 0.6rem; min-height: 1.5rem; }
+    .form-check-input {
+      flex-shrink: 0;
+      width: 1.2em;
+      height: 1.2em;
+      margin-top: 0.18em;
+      accent-color: var(--bs-primary);
+      cursor: pointer;
+    }
+    .form-check-label { cursor: pointer; }
+    .input-group { position: relative; display: flex; flex-wrap: nowrap; align-items: stretch; width: 100%; }
+    .input-group > .form-control { position: relative; flex: 1 1 auto; width: 1%; min-width: 0; border-top-right-radius: 0; border-bottom-right-radius: 0; }
+    .input-group > .btn { border-top-left-radius: 0; border-bottom-left-radius: 0; }
+    .is-invalid { border-color: var(--bs-danger) !important; }
+    .is-valid { border-color: var(--bs-success) !important; }
+    .invalid-feedback { display: none; width: 100%; margin-top: 0.35rem; font-size: 0.875rem; color: var(--bs-danger); }
+    .is-invalid ~ .invalid-feedback, .is-invalid + .invalid-feedback { display: block; }
+
+    /* Alerts */
+    .alert {
+      position: relative;
+      padding: 1rem 1.15rem;
+      margin-bottom: 1rem;
+      border: 1px solid transparent;
+      border-radius: var(--bs-border-radius);
+    }
+    .alert-success {
+      color: var(--bs-success-text-emphasis);
+      background-color: var(--bs-success-bg-subtle);
+      border-color: var(--bs-success-border-subtle);
+    }
+
+    /* Modal */
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1055;
+      display: none;
+      width: 100%;
+      height: 100%;
+      overflow-x: hidden;
+      overflow-y: auto;
+      background-color: rgba(0, 0, 0, 0.55);
+      padding: 1rem;
+    }
+    .modal.show { display: flex; align-items: center; justify-content: center; }
+    .modal-dialog { position: relative; width: 100%; max-width: 520px; margin: auto; }
+    .modal-content {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      background-color: #fff;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      border-radius: var(--bs-border-radius-lg);
+      box-shadow: var(--bs-box-shadow);
+    }
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid var(--bs-border-color);
+    }
+    .modal-title { margin-bottom: 0; line-height: 1.5; }
+    .modal-body { position: relative; flex: 1 1 auto; padding: 1.25rem; }
+    .modal-footer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 0.5rem;
+      padding: 0.85rem 1.25rem;
+      border-top: 1px solid var(--bs-border-color);
+    }
+
+    /* Toast */
+    .toast-container { z-index: 1060; max-width: calc(100vw - 2rem); }
+    .toast {
+      width: 340px;
+      max-width: 100%;
+      font-size: 0.9rem;
+      background-color: rgba(255, 255, 255, 0.96);
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      border-radius: var(--bs-border-radius);
+      box-shadow: var(--bs-box-shadow);
+      display: none;
+    }
+    .toast.show { display: block; }
+    .toast-header {
+      display: flex;
+      align-items: center;
+      padding: 0.5rem 0.75rem;
+      color: var(--bs-secondary-color);
+      background-color: rgba(255, 255, 255, 0.9);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      border-top-left-radius: calc(var(--bs-border-radius) - 1px);
+      border-top-right-radius: calc(var(--bs-border-radius) - 1px);
+    }
+    .toast-body { padding: 0.75rem; color: var(--bs-body-color); }
+
+    /* Accessibility helper */
+    .visually-hidden {
+      position: absolute !important;
+      width: 1px !important;
+      height: 1px !important;
+      padding: 0 !important;
+      margin: -1px !important;
+      overflow: hidden !important;
+      clip: rect(0, 0, 0, 0) !important;
+      white-space: nowrap !important;
+      border: 0 !important;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. Navbar escura sticky -->
+  <nav class="navbar navbar-expand-lg bg-dark sticky-top shadow-sm" aria-label="Navegação principal">
+    <div class="container">
+      <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="#inicio">
+        <i class="bi bi-compass-fill text-warning fs-4" aria-hidden="true">
+          <svg viewBox="0 0 16 16"><path d="M15.5 8.516a7.5 7.5 0 1 1-9.462-7.24A1 1 0 0 1 7 0h2a1 1 0 0 1 .962 1.276 7.5 7.5 0 0 1 5.538 7.24m-3.61-3.905L6.94 7.439 4.11 12.39l4.95-2.828 2.828-4.95z"/></svg>
+        </i>
+        <span>CESAE Viagens</span>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal"
+              aria-controls="menuPrincipal" aria-expanded="false" aria-label="Abrir ou fechar o menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="menuPrincipal">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item">
+            <a class="nav-link active" href="#inicio">Início</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#destinos" id="dropdownDestinos" role="button"
+               data-bs-toggle="dropdown" aria-expanded="false">
+              Destinos
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="dropdownDestinos">
+              <li>
+                <a class="dropdown-item" href="#destinos" data-slide-target="0">
+                  <i class="bi bi-geo-alt-fill text-primary" aria-hidden="true">
+                    <svg viewBox="0 0 16 16"><path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/></svg>
+                  </i>
+                  Lisboa
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#destinos" data-slide-target="1">
+                  <i class="bi bi-geo-alt-fill text-primary" aria-hidden="true">
+                    <svg viewBox="0 0 16 16"><path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/></svg>
+                  </i>
+                  Porto
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#destinos" data-slide-target="2">
+                  <i class="bi bi-geo-alt-fill text-primary" aria-hidden="true">
+                    <svg viewBox="0 0 16 16"><path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/></svg>
+                  </i>
+                  Funchal
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#planos">Planos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#perguntas">Perguntas</a>
+          </li>
+          <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+            <button type="button" class="btn btn-warning fw-semibold w-100" data-bs-toggle="modal" data-bs-target="#modalReserva">
+              <i class="bi bi-calendar-check" aria-hidden="true">
+                <svg viewBox="0 0 16 16"><path d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0"/><path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z"/></svg>
+              </i>
+              Reservar
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- 2. Secção Hero escura -->
+    <section id="inicio" class="bg-dark text-white py-5">
+      <div class="container py-4 py-lg-5">
+        <div class="row align-items-center g-5">
+          <div class="col-12 col-lg-7">
+            <span class="badge text-bg-warning mb-3">Roteiros de Autor · Portugal &amp; Ilhas</span>
+            <h1 class="display-4 fw-bold mb-3">Descubra o mundo com a CESAE Viagens</h1>
+            <p class="lead text-white-50 mb-4">
+              Experiências desenhadas ao detalhe para quem procura autenticidade, conforto e acompanhamento local em Lisboa, Porto e Funchal — com planos transparentes e apoio contínuo.
+            </p>
+            <div class="d-flex flex-wrap gap-3">
+              <a href="#planos" class="btn btn-warning btn-lg fw-semibold">Ver planos</a>
+              <a href="#destinos" class="btn btn-outline-light btn-lg">Ver destinos</a>
+            </div>
+          </div>
+
+          <div class="col-12 col-lg-5">
+            <div class="card bg-dark-subtle border border-secondary text-white shadow">
+              <div class="card-body p-4">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <span class="fw-semibold text-warning">Próximas saídas garantidas</span>
+                  <span class="badge text-bg-primary">2026</span>
+                </div>
+                <ul class="list-unstyled d-flex flex-column gap-3 mb-4">
+                  <li class="d-flex justify-content-between align-items-center border-bottom border-secondary pb-3">
+                    <div>
+                      <div class="fw-semibold">Lisboa &amp; Sintra</div>
+                      <div class="small text-white-50">Miradouros, Tejo e gastronomia</div>
+                    </div>
+                    <span class="badge text-bg-warning">Desde 199€</span>
+                  </li>
+                  <li class="d-flex justify-content-between align-items-center border-bottom border-secondary pb-3">
+                    <div>
+                      <div class="fw-semibold">Porto &amp; Vale do Douro</div>
+                      <div class="small text-white-50">Ribeira, caves e cruzeiro fluvial</div>
+                    </div>
+                    <span class="badge text-bg-warning">Desde 349€</span>
+                  </li>
+                  <li class="d-flex justify-content-between align-items-center">
+                    <div>
+                      <div class="fw-semibold">Funchal &amp; Levadas</div>
+                      <div class="small text-white-50">Jardins botânicos e costa atlântica</div>
+                    </div>
+                    <span class="badge text-bg-warning">Desde 599€</span>
+                  </li>
+                </ul>
+                <a href="#proposta" class="btn btn-primary w-100 fw-semibold">Pedir orçamento personalizado</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Secção "Porquê a CESAE Viagens?" -->
+    <section id="porque" class="py-5 bg-body">
+      <div class="container py-4">
+        <div class="text-center mb-5">
+          <h2 class="fw-bold mb-2">Porquê a CESAE Viagens?</h2>
+          <p class="text-body-secondary mb-0">Três compromissos práticos em cada viagem que organizamos.</p>
+        </div>
+
+        <div class="row g-4 text-center">
+          <div class="col-12 col-md-4">
+            <div class="p-3 h-100">
+              <div class="d-inline-flex align-items-center justify-content-center bg-primary-subtle border border-primary-subtle text-primary rounded-circle mb-3"
+                   style="width: 72px; height: 72px;">
+                <i class="bi bi-shield-check fs-1" aria-hidden="true">
+                  <svg viewBox="0 0 16 16"><path d="M5.338 1.59a61 61 0 0 0-2.837.856.48.48 0 0 0-.328.39c-.554 4.157.726 7.19 2.253 9.188a10.7 10.7 0 0 0 2.287 2.233c.346.244.652.42.893.533q.18.085.293.118a1 1 0 0 0 .101.025 1 1 0 0 0 .1-.025q.114-.034.294-.118c.24-.113.547-.29.893-.533a10.7 10.7 0 0 0 2.287-2.233c1.527-1.997 2.807-5.031 2.253-9.188a.48.48 0 0 0-.328-.39c-.651-.213-1.75-.56-2.837-.855C9.552 1.29 8.531 1.067 8 1.067c-.53 0-1.552.223-2.662.524zM5.072.56C6.157.265 7.31 0 8 0s1.843.265 2.928.56c1.11.3 2.229.655 2.887.87a1.54 1.54 0 0 1 1.044 1.262c.596 4.477-.787 7.795-2.465 9.99a11.8 11.8 0 0 1-2.517 2.453 7 7 0 0 1-1.048.625c-.28.132-.581.24-.829.24s-.548-.108-.829-.24a7 7 0 0 1-1.048-.625 11.8 11.8 0 0 1-2.517-2.453C1.928 10.487.545 7.169 1.141 2.692A1.54 1.54 0 0 1 2.185 1.43 63 63 0 0 1 5.072.56"/><path d="M10.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0"/></svg>
+                </i>
+              </div>
+              <h3 class="h5 fw-bold mb-2">Segurança e Flexibilidade</h3>
+              <p class="text-body-secondary mb-0">
+                Alteração de datas sem penalização e cancelamento gratuito até 14 dias antes da partida, com seguro de assistência incluído.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-4">
+            <div class="p-3 h-100">
+              <div class="d-inline-flex align-items-center justify-content-center bg-primary-subtle border border-primary-subtle text-primary rounded-circle mb-3"
+                   style="width: 72px; height: 72px;">
+                <i class="bi bi-compass fs-1" aria-hidden="true">
+                  <svg viewBox="0 0 16 16"><path d="M8 16.016a7.5 7.5 0 0 0 1.962-14.74A1 1 0 0 0 9 0H7a1 1 0 0 0-.962 1.276A7.5 7.5 0 0 0 8 16.016m6.5-7.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0"/><path d="m6.94 7.44 4.95-2.83-2.83 4.95-4.949 2.83 2.828-4.95z"/></svg>
+                </i>
+              </div>
+              <h3 class="h5 fw-bold mb-2">Roteiros com Guias Locais</h3>
+              <p class="text-body-secondary mb-0">
+                Percursos selecionados por especialistas do terreno que revelam bairros históricos, miradouros reservados e sabores regionais.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-4">
+            <div class="p-3 h-100">
+              <div class="d-inline-flex align-items-center justify-content-center bg-primary-subtle border border-primary-subtle text-primary rounded-circle mb-3"
+                   style="width: 72px; height: 72px;">
+                <i class="bi bi-headset fs-1" aria-hidden="true">
+                  <svg viewBox="0 0 16 16"><path d="M8 1a5 5 0 0 0-5 5v1h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a6 6 0 1 1 12 0v6a2.5 2.5 0 0 1-2.5 2.5H9.366a1 1 0 0 1-.866.5h-1a1 1 0 1 1 0-2h1a1 1 0 0 1 .866.5H11.5A1.5 1.5 0 0 0 13 12h-1a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h1V6a5 5 0 0 0-5-5"/></svg>
+                </i>
+              </div>
+              <h3 class="h5 fw-bold mb-2">Apoio Dedicado 24/7</h3>
+              <p class="text-body-secondary mb-0">
+                Contacto direto em português antes, durante e depois da viagem para ajustar horários, transferes ou recomendações no momento.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Carrossel "Destinos em destaque" -->
+    <section id="destinos" class="py-5 bg-light">
+      <div class="container py-4">
+        <div class="text-center mb-4">
+          <h2 class="fw-bold mb-2">Destinos em destaque</h2>
+          <p class="text-body-secondary mb-0">Explore os nossos três destinos nacionais mais procurados nesta temporada.</p>
+        </div>
+
+        <div id="carouselDestinos" class="carousel slide shadow rounded-3 overflow-hidden" data-bs-ride="carousel">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselDestinos" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Lisboa"></button>
+            <button type="button" data-bs-target="#carouselDestinos" data-bs-slide-to="1" aria-label="Porto"></button>
+            <button type="button" data-bs-target="#carouselDestinos" data-bs-slide-to="2" aria-label="Funchal"></button>
+          </div>
+
+          <div class="carousel-inner">
+            <!-- Slide 1: Lisboa -->
+            <div class="carousel-item active">
+              <img class="d-block w-100" alt="Vista panorâmica de Lisboa ao pôr do sol sobre o rio Tejo e colinas de Alfama"
+                   src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 500' preserveAspectRatio='xMidYMid slice'%3E%3Cdefs%3E%3ClinearGradient id='skyLisboa' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0%25' stop-color='%23162a47'/%3E%3Cstop offset='55%25' stop-color='%23c45b33'/%3E%3Cstop offset='100%25' stop-color='%23f5b041'/%3E%3C/linearGradient%3E%3ClinearGradient id='tejo' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0%25' stop-color='%2323496d'/%3E%3Cstop offset='100%25' stop-color='%230d1b2a'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='1200' height='360' fill='url(%23skyLisboa)'/%3E%3Ccircle cx='880' cy='210' r='68' fill='%23ffd166' opacity='0.9'/%3E%3Cpath d='M0 320 Q180 245 370 285 T760 270 T1200 295 L1200 360 L0 360 Z' fill='%231f2e42'/%3E%3Cpath d='M80 265 L120 265 L120 230 L165 230 L165 265 L240 265 L240 245 L290 245 L290 275 L340 275 L340 250 L395 250 L395 280 L450 280 L450 260 L510 260 L510 295 L80 295 Z' fill='%232b3e56'/%3E%3Crect x='130' y='242' width='12' height='16' fill='%23f6c453' opacity='0.8'/%3E%3Crect x='255' y='255' width='10' height='14' fill='%23f6c453' opacity='0.8'/%3E%3Crect x='355' y='260' width='10' height='14' fill='%23f6c453' opacity='0.8'/%3E%3Cpath d='M570 355 L600 185 L620 185 L650 355 M585 250 L635 250 M930 355 L960 185 L980 185 L1010 355 M945 250 L995 250' stroke='%23993326' stroke-width='6' fill='none'/%3E%3Cpath d='M420 295 Q610 195 610 185 Q790 290 970 185 Q1090 275 1200 295' stroke='%23b03a2e' stroke-width='4' fill='none'/%3E%3Cline x1='420' y1='292' x2='1200' y2='292' stroke='%237b241c' stroke-width='6'/%3E%3Crect y='345' width='1200' height='155' fill='url(%23tejo)'/%3E%3Cellipse cx='880' cy='385' rx='110' ry='10' fill='%23ffd166' opacity='0.35'/%3E%3Crect x='190' y='278' width='68' height='36' rx='6' fill='%23ffc107'/%3E%3Crect x='200' y='285' width='14' height='14' rx='2' fill='%231b263b'/%3E%3Crect x='218' y='285' width='14' height='14' rx='2' fill='%231b263b'/%3E%3Crect x='236' y='285' width='14' height='14' rx='2' fill='%231b263b'/%3E%3Crect y='310' width='1200' height='190' fill='%230d1117' opacity='0.38'/%3E%3C/svg%3E">
+              <div class="carousel-caption d-block">
+                <h3 class="h4 fw-bold mb-1">Lisboa</h3>
+                <p class="mb-0">Colinas históricas de Alfama, elétricos tradicionais, Belém e o brilho único do rio Tejo.</p>
+              </div>
+            </div>
+
+            <!-- Slide 2: Porto -->
+            <div class="carousel-item">
+              <img class="d-block w-100" alt="Ponte Dom Luís I e casas coloridas da Ribeira do Porto sobre o rio Douro"
+                   src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 500' preserveAspectRatio='xMidYMid slice'%3E%3Cdefs%3E%3ClinearGradient id='skyPorto' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0%25' stop-color='%230f2537'/%3E%3Cstop offset='60%25' stop-color='%232e5978'/%3E%3Cstop offset='100%25' stop-color='%237aa3b8'/%3E%3C/linearGradient%3E%3ClinearGradient id='douro' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0%25' stop-color='%231b3b52'/%3E%3Cstop offset='100%25' stop-color='%230a1824'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='1200' height='350' fill='url(%23skyPorto)'/%3E%3Cpath d='M0 290 L140 260 L260 285 L440 250 L620 295 L830 270 L1020 245 L1200 280 L1200 350 L0 350 Z' fill='%231a2a38'/%3E%3Crect x='235' y='125' width='22' height='145' fill='%232c3e50'/%3E%3Cpolygon points='235,125 246,95 257,125' fill='%23d4a373'/%3E%3Crect x='60' y='245' width='55' height='80' fill='%23d97742'/%3E%3Crect x='118' y='230' width='48' height='95' fill='%23e0a94f'/%3E%3Crect x='169' y='250' width='52' height='75' fill='%233d7a8a'/%3E%3Crect x='224' y='235' width='56' height='90' fill='%23b5493a'/%3E%3Crect x='283' y='252' width='48' height='73' fill='%23d9c6a5'/%3E%3Cpath d='M420 330 Q680 175 940 330' stroke='%239aa8b8' stroke-width='10' fill='none'/%3E%3Cpath d='M450 330 Q680 205 910 330' stroke='%23728294' stroke-width='6' fill='none'/%3E%3Cline x1='350' y1='210' x2='1030' y2='210' stroke='%23adb5bd' stroke-width='8'/%3E%3Cline x1='400' y1='285' x2='960' y2='285' stroke='%238a99a8' stroke-width='6'/%3E%3Cline x1='520' y1='210' x2='520' y2='330' stroke='%23728294' stroke-width='5'/%3E%3Cline x1='840' y1='210' x2='840' y2='330' stroke='%23728294' stroke-width='5'/%3E%3Crect y='330' width='1200' height='170' fill='url(%23douro)'/%3E%3Cpath d='M550 380 L650 380 L635 398 L565 398 Z' fill='%235c3a21'/%3E%3Cline x1='600' y1='380' x2='600' y2='330' stroke='%23f8f9fa' stroke-width='3'/%3E%3Cpolygon points='602,332 636,368 602,368' fill='%23f8f9fa' opacity='0.9'/%3E%3Crect y='305' width='1200' height='195' fill='%230d1117' opacity='0.36'/%3E%3C/svg%3E">
+              <div class="carousel-caption d-block">
+                <h3 class="h4 fw-bold mb-1">Porto</h3>
+                <p class="mb-0">Ribeira Património Mundial, travessia da Ponte Dom Luís I e visita às caves do Douro.</p>
+              </div>
+            </div>
+
+            <!-- Slide 3: Funchal -->
+            <div class="carousel-item">
+              <img class="d-block w-100" alt="Baía do Funchal rodeada de montanhas verdes e mar Atlântico na Madeira"
+                   src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 500' preserveAspectRatio='xMidYMid slice'%3E%3Cdefs%3E%3ClinearGradient id='skyFunchal' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0%25' stop-color='%230b3954'/%3E%3Cstop offset='65%25' stop-color='%231d708a'/%3E%3Cstop offset='100%25' stop-color='%237bdff2'/%3E%3C/linearGradient%3E%3ClinearGradient id='atlantico' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0%25' stop-color='%230b5375'/%3E%3Cstop offset='100%25' stop-color='%2306283d'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='1200' height='340' fill='url(%23skyFunchal)'/%3E%3Cpath d='M0 320 L180 155 L390 225 L610 125 L840 215 L1040 165 L1200 265 L1200 340 L0 340 Z' fill='%231b4332'/%3E%3Cpath d='M0 340 Q260 225 560 295 T1200 285 L1200 340 L0 340 Z' fill='%232d6a4f'/%3E%3Cline x1='220' y1='175' x2='780' y2='315' stroke='%23dee2e6' stroke-width='2' stroke-dasharray='6 4'/%3E%3Crect x='485' y='240' width='22' height='18' rx='4' fill='%23ffc107'/%3E%3Crect x='300' y='285' width='34' height='22' fill='%23ffffff'/%3E%3Cpolygon points='296,285 317,273 338,285' fill='%23c0392b'/%3E%3Crect x='345' y='278' width='38' height='26' fill='%23ffffff'/%3E%3Cpolygon points='341,278 364,265 387,278' fill='%23c0392b'/%3E%3Crect x='400' y='292' width='30' height='20' fill='%23ffffff'/%3E%3Cpolygon points='396,292 415,280 434,292' fill='%23c0392b'/%3E%3Crect y='330' width='1200' height='170' fill='url(%23atlantico)'/%3E%3Cpath d='M780 370 L910 370 L895 390 L795 390 Z' fill='%23ffffff'/%3E%3Crect x='825' y='354' width='45' height='16' fill='%23e9ecef'/%3E%3Crect y='305' width='1200' height='195' fill='%230d1117' opacity='0.34'/%3E%3C/svg%3E">
+              <div class="carousel-caption d-block">
+                <h3 class="h4 fw-bold mb-1">Funchal</h3>
+                <p class="mb-0">Anfiteatro verde sobre o Atlântico, subida de teleférico ao Monte e caminhadas pelas levadas.</p>
+              </div>
+            </div>
+          </div>
+
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselDestinos" data-bs-slide="prev" aria-label="Destino anterior">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Anterior</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselDestinos" data-bs-slide="next" aria-label="Próximo destino">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Seguinte</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Tabela de preços "Os nossos planos" -->
+    <section id="planos" class="py-5 bg-body">
+      <div class="container py-4">
+        <div class="text-center mb-5">
+          <h2 class="fw-bold mb-2">Os nossos planos</h2>
+          <p class="text-body-secondary mb-0">Escolha a modalidade ideal para o seu ritmo de viagem e orçamento.</p>
+        </div>
+
+        <div class="row g-4 align-items-stretch">
+          <!-- Plano Essencial -->
+          <div class="col-12 col-lg-4">
+            <div class="card h-100 shadow-sm">
+              <div class="card-header bg-transparent py-3 text-center">
+                <h3 class="h4 fw-bold mb-0">Essencial</h3>
+              </div>
+              <div class="card-body d-flex flex-column p-4">
+                <div class="text-center mb-4">
+                  <div class="display-5 fw-bold">199€</div>
+                  <div class="small text-body-secondary">por pessoa · escapadinha 3 noites</div>
+                </div>
+                <ul class="list-unstyled d-flex flex-column gap-2 mb-4 flex-grow-1">
+                  <li class="d-flex align-items-center gap-2">
+                    <i class="bi bi-check-circle-fill text-primary" aria-hidden="true">
+                      <svg viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>
+                    </i>
+                    <span>Alojamento 3 estrelas com pequeno-almoço</span>
+                  </li>
+                  <li class="d-flex align-items-center gap-2">
+                    <i class="bi bi-check-circle-fill text-primary" aria-hidden="true">
+                      <svg viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>
+                    </i>
+                    <span>Roteiro digital e visita guiada de meio dia</span>
+                  </li>
+                  <li class="d-flex align-items-center gap-2">
+                    <i class="bi bi-check-circle-fill text-primary" aria-hidden="true">
+                      <svg viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>
+                    </i>
+                    <span>Seguro base de viagem incluído</span>
+                  </li>
+                  <li class="d-flex align-items-center gap-2 text-body-secondary">
+                    <i class="bi bi-x-circle" aria-hidden="true">
+                      <svg viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/></svg>
+                    </i>
+                    <span>Transfere privado aeroporto-hotel</span>
+                  </li>
+                </ul>
+                <button type="button" class="btn btn-outline-primary w-100 mt-auto fw-semibold"
+                        data-bs-toggle="modal" data-bs-target="#modalReserva" data-plan="Essencial (199€)">
+                  Escolher Essencial
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Plano Família (destacado a azul) -->
+          <div class="col-12 col-lg-4">
+            <div class="card h-100 shadow border-primary border-2">
+              <div class="card-header text-bg-primary py-3 text-center d-flex align-items-center justify-content-center gap-2">
+                <h3 class="h4 fw-bold mb-0">Família</h3>
+                <span class="badge text-bg-warning">Recomendado</span>
+              </div>
+              <div class="card-body d-flex flex-column p-4">
+                <div class="text-center mb-4">
+                  <div class="display-5 fw-bold text-primary">349€</div>
+                  <div class="small text-body-secondary">por pessoa · estadia 5 noites</div>
+                </div>
+                <ul class="list-unstyled d-flex flex-column gap-2 mb-4 flex-grow-1">
+                  <li class="d-flex align-items-center gap-2">
+                    <i class="bi bi-check-circle-fill text-primary" aria-hidden="true">
+                      <svg viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>
+                    </i>
+                    <span>Alojamento 4 estrelas em quartos comunicantes</span>
+                  </li>
+                  <li class="d-flex align-items-center gap-2">
+                    <i class="bi bi-check-circle-fill text-primary" aria-hidden="true">
+                      <svg viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>
+                    </i>
+                    <span>2 experiências culturais ou náuticas incluídas</span>
+                  </li>
+                  <li class="d-flex align-items-center gap-2">
+                    <i class="bi bi-check-circle-fill text-primary" aria-hidden="true">
+                      <svg viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>
+                    </i>
+                    <span>Transfere de chegada e partida incluído</span>
+                  </li>
+                  <li class="d-flex align-items-center gap-2">
+                    <i class="bi bi-check-circle-fill text-primary" aria-hidden="true">
+                      <svg viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>
+                    </i>
+                    <span>Cancelamento flexível e seguro completo</span>
+                  </li>
+                </ul>
+                <button type="button" class="btn btn-primary w-100 mt-auto fw-semibold"
+                        data-bs-toggle="modal" data-bs-target="#modalReserva" data-plan="Família (349€)">
+                  Escolher Família
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Plano Premium -->
+          <div class="col-12 col-lg-4">
+            <div class="card h-100 shadow-sm">
+              <div class="card-header bg-transparent py-3 text-center">
+                <h3 class="h4 fw-bold mb-0">Premium</h3>
+              </div>
+              <div class="card-body d-flex flex-column p-4">
+                <div class="text-center mb-4">
+                  <div class="display-5 fw-bold">599€</div>
+                  <div class="small text-body-secondary">por pessoa · circuito 7 noites</div>
+                </div>
+                <ul class="list-unstyled d-flex flex-column gap-2 mb-4 flex-grow-1">
+                  <li class="d-flex align-items-center gap-2">
+                    <i class="bi bi-check-circle-fill text-primary" aria-hidden="true">
+                      <svg viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>
+                    </i>
+                    <span>Hotéis boutique 5 estrelas em localização central</span>
+                  </li>
+                  <li class="d-flex align-items-center gap-2">
+                    <i class="bi bi-check-circle-fill text-primary" aria-hidden="true">
+                      <svg viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>
+                    </i>
+                    <span>Guia privado e provas gastronómicas exclusivas</span>
+                  </li>
+                  <li class="d-flex align-items-center gap-2">
+                    <i class="bi bi-check-circle-fill text-primary" aria-hidden="true">
+                      <svg viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>
+                    </i>
+                    <span>Todos os transferes privados porta a porta</span>
+                  </li>
+                  <li class="d-flex align-items-center gap-2">
+                    <i class="bi bi-check-circle-fill text-primary" aria-hidden="true">
+                      <svg viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>
+                    </i>
+                    <span>Gestor de viagem dedicado 24 horas</span>
+                  </li>
+                </ul>
+                <button type="button" class="btn btn-outline-primary w-100 mt-auto fw-semibold"
+                        data-bs-toggle="modal" data-bs-target="#modalReserva" data-plan="Premium (599€)">
+                  Escolher Premium
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Accordion "Perguntas frequentes" -->
+    <section id="perguntas" class="py-5 bg-light">
+      <div class="container py-4">
+        <div class="text-center mb-4">
+          <h2 class="fw-bold mb-2">Perguntas frequentes</h2>
+          <p class="text-body-secondary mb-0">Respostas rápidas sobre reservas, alterações e personalização de viagens.</p>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-12 col-lg-8">
+            <div class="accordion shadow-sm" id="accordionFAQ">
+              <div class="accordion-item">
+                <h3 class="accordion-header">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                          data-bs-target="#faqUm" aria-expanded="true" aria-controls="faqUm">
+                    O que está incluído nos pacotes da CESAE Viagens?
+                  </button>
+                </h3>
+                <div id="faqUm" class="accordion-collapse collapse show" data-bs-parent="#accordionFAQ">
+                  <div class="accordion-body">
+                    Todos os pacotes incluem alojamento selecionado com pequeno-almoço, seguro de assistência em viagem, roteiro detalhado em português e acompanhamento da nossa equipa de apoio. Nos planos Família e Premium estão ainda incluídos transferes e atividades culturais ou náuticas.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                          data-bs-target="#faqDois" aria-expanded="false" aria-controls="faqDois">
+                    Posso alterar as datas ou cancelar a minha reserva?
+                  </button>
+                </h3>
+                <div id="faqDois" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+                  <div class="accordion-body">
+                    Sim. Pode remarcar datas sem custos administrativos ou solicitar o reembolso integral até 14 dias antes do início da viagem. Após esse prazo, aplicam-se apenas as condições dos operadores parceiros.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h3 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                          data-bs-target="#faqTres" aria-expanded="false" aria-controls="faqTres">
+                    É possível combinar mais do que um destino ou viajar em grupo?
+                  </button>
+                </h3>
+                <div id="faqTres" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+                  <div class="accordion-body">
+                    Com certeza. Preparamos circuitos combinados entre Lisboa, Porto e Funchal, bem como condições especiais para famílias numerosas, equipas empresariais e grupos escolares. Utilize o formulário abaixo para receber uma proposta ajustada ao número de viajantes.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Formulário "Peça uma proposta" -->
+    <section id="proposta" class="py-5 bg-body">
+      <div class="container py-4">
+        <div class="text-center mb-4">
+          <h2 class="fw-bold mb-2">Peça uma proposta</h2>
+          <p class="text-body-secondary mb-0">Indique as suas preferências e enviaremos um itinerário detalhado em menos de 24 horas.</p>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-12 col-lg-8">
+            <div class="card shadow-sm border-0 bg-light">
+              <div class="card-body p-4 p-md-5">
+                <div id="propostaSucesso" class="alert alert-success d-none" role="alert">
+                  <strong>Pedido enviado com sucesso!</strong> A equipa da CESAE Viagens irá responder para o email indicado nas próximas horas.
+                </div>
+
+                <form id="formProposta" novalidate>
+                  <div class="row g-3 mb-3">
+                    <div class="col-12 col-md-6">
+                      <label for="propNome" class="form-label fw-semibold">Nome completo</label>
+                      <input type="text" class="form-control" id="propNome" placeholder="Ex.: Mariana Ferreira" required>
+                      <div class="invalid-feedback">Por favor, indique o seu nome completo.</div>
+                    </div>
+
+                    <div class="col-12 col-md-6">
+                      <label for="propEmail" class="form-label fw-semibold">Email</label>
+                      <input type="email" class="form-control" id="propEmail" placeholder="mariana@exemplo.pt" required>
+                      <div class="invalid-feedback">Por favor, introduza um endereço de email válido.</div>
+                    </div>
+                  </div>
+
+                  <div class="row g-3 mb-3">
+                    <div class="col-12 col-md-6">
+                      <label for="propDestino" class="form-label fw-semibold">Destino</label>
+                      <select class="form-select" id="propDestino" required>
+                        <option value="" selected disabled>Escolha um destino…</option>
+                        <option value="Lisboa">Lisboa</option>
+                        <option value="Porto">Porto</option>
+                        <option value="Funchal">Funchal</option>
+                        <option value="Roteiro combinado">Roteiro combinado (Lisboa + Porto / Funchal)</option>
+                      </select>
+                      <div class="invalid-feedback">Selecione um destino da lista.</div>
+                    </div>
+
+                    <div class="col-12 col-md-6">
+                      <label for="propPessoas" class="form-label fw-semibold">Número de pessoas</label>
+                      <input type="number" class="form-control" id="propPessoas" min="1" max="50" value="2" required>
+                      <div class="invalid-feedback">Indique entre 1 e 50 viajantes.</div>
+                    </div>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="propMensagem" class="form-label fw-semibold">Mensagem e preferências</label>
+                    <textarea class="form-control" id="propMensagem" rows="4"
+                              placeholder="Indique datas aproximadas, plano de interesse (Essencial, Família ou Premium) ou necessidades especiais…" required></textarea>
+                    <div class="invalid-feedback">Escreva uma breve nota sobre a viagem pretendida.</div>
+                  </div>
+
+                  <div class="form-check mb-4">
+                    <input class="form-check-input" type="checkbox" id="propTermos" required>
+                    <label class="form-check-label" for="propTermos">
+                      Aceito os termos e condições e autorizo o contacto da CESAE Viagens para resposta a este pedido.
+                    </label>
+                    <div class="invalid-feedback">É necessário aceitar os termos para enviar o pedido.</div>
+                  </div>
+
+                  <button type="submit" class="btn btn-primary btn-lg w-100 fw-semibold">
+                    <i class="bi bi-send-fill" aria-hidden="true">
+                      <svg viewBox="0 0 16 16"><path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471z"/></svg>
+                    </i>
+                    Enviar pedido de proposta
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 8. Rodapé escuro -->
+  <footer class="bg-dark text-light pt-5 pb-4">
+    <div class="container">
+      <div class="row g-4 pb-4 border-bottom border-secondary">
+        <!-- Informações da empresa -->
+        <div class="col-12 col-md-5">
+          <div class="d-flex align-items-center gap-2 fw-bold fs-5 mb-3">
+            <i class="bi bi-compass-fill text-warning" aria-hidden="true">
+              <svg viewBox="0 0 16 16"><path d="M15.5 8.516a7.5 7.5 0 1 1-9.462-7.24A1 1 0 0 1 7 0h2a1 1 0 0 1 .962 1.276 7.5 7.5 0 0 1 5.538 7.24m-3.61-3.905L6.94 7.439 4.11 12.39l4.95-2.828 2.828-4.95z"/></svg>
+            </i>
+            <span>CESAE Viagens</span>
+          </div>
+          <p class="text-white-50 small mb-3">
+            Agência especializada em roteiros culturais, escapadinhas urbanas e viagens em família por Portugal continental e ilhas.
+          </p>
+          <ul class="list-unstyled small text-white-50 d-flex flex-column gap-2 mb-0">
+            <li class="d-flex align-items-center gap-2">
+              <i class="bi bi-geo-alt-fill text-warning" aria-hidden="true">
+                <svg viewBox="0 0 16 16"><path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/></svg>
+              </i>
+              <span>Rua Ciríaco Cardoso 186, 4150-212 Porto</span>
+            </li>
+            <li class="d-flex align-items-center gap-2">
+              <i class="bi bi-telephone-fill text-warning" aria-hidden="true">
+                <svg viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"/></svg>
+              </i>
+              <span>+351 220 000 000 · atendimento@cesaeviagens.pt</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Links rápidos -->
+        <div class="col-12 col-sm-6 col-md-3">
+          <h3 class="h6 fw-bold text-white mb-3">Links rápidos</h3>
+          <ul class="list-unstyled d-flex flex-column gap-2 small mb-0">
+            <li><a href="#inicio" class="text-white-50 text-decoration-none">Início</a></li>
+            <li><a href="#porque" class="text-white-50 text-decoration-none">Porquê escolher-nos</a></li>
+            <li><a href="#destinos" class="text-white-50 text-decoration-none">Destinos em destaque</a></li>
+            <li><a href="#planos" class="text-white-50 text-decoration-none">Os nossos planos</a></li>
+            <li><a href="#perguntas" class="text-white-50 text-decoration-none">Perguntas frequentes</a></li>
+            <li><a href="#proposta" class="text-white-50 text-decoration-none">Peça uma proposta</a></li>
+          </ul>
+        </div>
+
+        <!-- Newsletter + Redes Sociais -->
+        <div class="col-12 col-sm-6 col-md-4">
+          <h3 class="h6 fw-bold text-white mb-2">Newsletter</h3>
+          <form id="formNewsletter" novalidate>
+            <label for="newsletterEmail" class="form-label text-white-50 small">
+              Receba novidades, campanhas sazonais e novos roteiros por email.
+            </label>
+            <div class="input-group mb-2">
+              <input type="email" class="form-control" id="newsletterEmail" placeholder="nome@exemplo.pt" required>
+              <button class="btn btn-warning fw-semibold" type="submit">Subscrever</button>
+            </div>
+            <div id="newsletterFeedback" class="small text-warning mb-3" aria-live="polite"></div>
+          </form>
+
+          <div class="d-flex align-items-center gap-2 mt-3">
+            <span class="small text-white-50 me-2">Siga-nos:</span>
+            <button type="button" class="btn btn-outline-light btn-sm rounded-circle" data-social="Instagram" aria-label="Instagram da CESAE Viagens">
+              <i class="bi bi-instagram" aria-hidden="true">
+                <svg viewBox="0 0 16 16"><path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/></svg>
+              </i>
+            </button>
+            <button type="button" class="btn btn-outline-light btn-sm rounded-circle" data-social="Facebook" aria-label="Facebook da CESAE Viagens">
+              <i class="bi bi-facebook" aria-hidden="true">
+                <svg viewBox="0 0 16 16"><path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/></svg>
+              </i>
+            </button>
+            <button type="button" class="btn btn-outline-light btn-sm rounded-circle" data-social="LinkedIn" aria-label="LinkedIn da CESAE Viagens">
+              <i class="bi bi-linkedin" aria-hidden="true">
+                <svg viewBox="0 0 16 16"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"/></svg>
+              </i>
+            </button>
+            <button type="button" class="btn btn-outline-light btn-sm rounded-circle" data-social="YouTube" aria-label="YouTube da CESAE Viagens">
+              <i class="bi bi-youtube" aria-hidden="true">
+                <svg viewBox="0 0 16 16"><path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.01 2.01 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.01 2.01 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31 31 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.01 2.01 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A100 100 0 0 1 7.858 2zM6.4 5.209v4.818l4.157-2.408z"/></svg>
+              </i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="pt-3 d-flex flex-column flex-md-row justify-content-between align-items-center gap-2 text-white-50 small">
+        <span>© 2026 CESAE Viagens. Todos os direitos reservados.</span>
+        <span>RNAVT 0000 · Exercício desenvolvido com Bootstrap 5.3</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal de Reserva Rápida (acionado pelo botão amarelo "Reservar" ou pelos cartões de planos) -->
+  <div class="modal" id="modalReserva" tabindex="-1" aria-labelledby="modalReservaTitulo" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title fs-5 fw-bold" id="modalReservaTitulo">Pré-reserva CESAE Viagens</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+        </div>
+        <form id="formReserva" novalidate>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="resPlano" class="form-label fw-semibold">Plano selecionado</label>
+              <select class="form-select" id="resPlano">
+                <option value="Essencial (199€)" data-price="199">Essencial — 199€ / pessoa</option>
+                <option value="Família (349€)" data-price="349" selected>Família — 349€ / pessoa</option>
+                <option value="Premium (599€)" data-price="599">Premium — 599€ / pessoa</option>
+              </select>
+            </div>
+            <div class="row g-3 mb-3">
+              <div class="col-12 col-md-6">
+                <label for="resDestino" class="form-label fw-semibold">Destino</label>
+                <select class="form-select" id="resDestino">
+                  <option value="Lisboa">Lisboa</option>
+                  <option value="Porto">Porto</option>
+                  <option value="Funchal">Funchal</option>
+                </select>
+              </div>
+              <div class="col-12 col-md-6">
+                <label for="resPessoas" class="form-label fw-semibold">Viajantes</label>
+                <input type="number" class="form-control" id="resPessoas" min="1" max="20" value="2" required>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="resEmail" class="form-label fw-semibold">Email de contacto</label>
+              <input type="email" class="form-control" id="resEmail" placeholder="seu.email@exemplo.pt" required>
+              <div class="invalid-feedback">Introduza um email válido para receber a confirmação.</div>
+            </div>
+            <div class="p-3 bg-light rounded border d-flex justify-content-between align-items-center">
+              <span class="small text-body-secondary">Estimativa total</span>
+              <strong class="fs-5 text-primary" id="resTotal">698€</strong>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+            <button type="submit" class="btn btn-warning fw-semibold">Confirmar pré-reserva</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast de notificações -->
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="avisoToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header">
+        <strong class="me-auto text-dark">CESAE Viagens</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Fechar"></button>
+      </div>
+      <div class="toast-body" id="avisoToastTexto">Ação concluída.</div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      'use strict';
+
+      // Toast helper
+      var toastTimer = null;
+      function mostrarToast(mensagem) {
+        var toastEl = document.getElementById('avisoToast');
+        var textEl = document.getElementById('avisoToastTexto');
+        if (!toastEl || !textEl) return;
+        textEl.textContent = mensagem;
+        toastEl.classList.add('show');
+        if (toastTimer) clearTimeout(toastTimer);
+        toastTimer = setTimeout(function () {
+          toastEl.classList.remove('show');
+        }, 4200);
+      }
+
+      var toastCloseBtn = document.querySelector('#avisoToast [data-bs-dismiss="toast"]');
+      if (toastCloseBtn) {
+        toastCloseBtn.addEventListener('click', function () {
+          var toastEl = document.getElementById('avisoToast');
+          if (toastEl) toastEl.classList.remove('show');
+        });
+      }
+
+      // Navbar Collapse (menu hambúrguer)
+      var toggler = document.querySelector('.navbar-toggler');
+      var navMenu = document.getElementById('menuPrincipal');
+      if (toggler && navMenu) {
+        toggler.addEventListener('click', function () {
+          var isShown = navMenu.classList.toggle('show');
+          toggler.setAttribute('aria-expanded', isShown ? 'true' : 'false');
+        });
+
+        // Fecha o menu móvel ao clicar num link simples
+        navMenu.querySelectorAll('a.nav-link:not(.dropdown-toggle), .dropdown-item').forEach(function (link) {
+          link.addEventListener('click', function () {
+            if (window.innerWidth < 992) {
+              navMenu.classList.remove('show');
+              toggler.setAttribute('aria-expanded', 'false');
+            }
+          });
+        });
+      }
+
+      // Dropdown Destinos
+      var dropdownToggle = document.getElementById('dropdownDestinos');
+      var dropdownMenu = dropdownToggle ? dropdownToggle.nextElementSibling : null;
+      if (dropdownToggle && dropdownMenu) {
+        dropdownToggle.addEventListener('click', function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          var open = dropdownMenu.classList.toggle('show');
+          dropdownToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+        document.addEventListener('click', function (e) {
+          if (!dropdownToggle.contains(e.target) && !dropdownMenu.contains(e.target)) {
+            dropdownMenu.classList.remove('show');
+            dropdownToggle.setAttribute('aria-expanded', 'false');
+          }
+        });
+      }
+
+      // Carrossel Destinos em Destaque
+      var carouselEl = document.getElementById('carouselDestinos');
+      if (carouselEl) {
+        var slides = Array.prototype.slice.call(carouselEl.querySelectorAll('.carousel-item'));
+        var indicators = Array.prototype.slice.call(carouselEl.querySelectorAll('.carousel-indicators button'));
+        var currentIndex = 0;
+        var autoPlayTimer = null;
+
+        function goToSlide(idx) {
+          if (!slides.length) return;
+          currentIndex = ((idx % slides.length) + slides.length) % slides.length;
+          slides.forEach(function (slide, i) {
+            slide.classList.toggle('active', i === currentIndex);
+          });
+          indicators.forEach(function (btn, i) {
+            btn.classList.toggle('active', i === currentIndex);
+            if (i === currentIndex) {
+              btn.setAttribute('aria-current', 'true');
+            } else {
+              btn.removeAttribute('aria-current');
+            }
+          });
+        }
+
+        function startAutoPlay() {
+          if (autoPlayTimer) clearInterval(autoPlayTimer);
+          autoPlayTimer = setInterval(function () {
+            goToSlide(currentIndex + 1);
+          }, 5500);
+        }
+
+        var prevBtn = carouselEl.querySelector('[data-bs-slide="prev"]');
+        var nextBtn = carouselEl.querySelector('[data-bs-slide="next"]');
+        if (prevBtn) {
+          prevBtn.addEventListener('click', function () {
+            goToSlide(currentIndex - 1);
+            startAutoPlay();
+          });
+        }
+        if (nextBtn) {
+          nextBtn.addEventListener('click', function () {
+            goToSlide(currentIndex + 1);
+            startAutoPlay();
+          });
+        }
+        indicators.forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            var target = parseInt(btn.getAttribute('data-bs-slide-to') || '0', 10);
+            goToSlide(target);
+            startAutoPlay();
+          });
+        });
+
+        carouselEl.addEventListener('mouseenter', function () {
+          if (autoPlayTimer) clearInterval(autoPlayTimer);
+        });
+        carouselEl.addEventListener('mouseleave', startAutoPlay);
+
+        // Liga os itens do dropdown da navbar aos respetivos slides
+        document.querySelectorAll('[data-slide-target]').forEach(function (item) {
+          item.addEventListener('click', function () {
+            var slideIdx = parseInt(item.getAttribute('data-slide-target') || '0', 10);
+            goToSlide(slideIdx);
+            startAutoPlay();
+            if (dropdownMenu) {
+              dropdownMenu.classList.remove('show');
+              if (dropdownToggle) dropdownToggle.setAttribute('aria-expanded', 'false');
+            }
+          });
+        });
+
+        startAutoPlay();
+      }
+
+      // Accordion FAQ
+      var accordionEl = document.getElementById('accordionFAQ');
+      if (accordionEl) {
+        var accButtons = accordionEl.querySelectorAll('.accordion-button');
+        accButtons.forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            var targetSel = btn.getAttribute('data-bs-target');
+            if (!targetSel) return;
+            var targetPanel = document.querySelector(targetSel);
+            if (!targetPanel) return;
+            var isCurrentlyOpen = targetPanel.classList.contains('show');
+
+            // Fecha os restantes painéis (data-bs-parent="#accordionFAQ")
+            accordionEl.querySelectorAll('.accordion-collapse').forEach(function (panel) {
+              panel.classList.remove('show');
+            });
+            accButtons.forEach(function (otherBtn) {
+              otherBtn.classList.add('collapsed');
+              otherBtn.setAttribute('aria-expanded', 'false');
+            });
+
+            if (!isCurrentlyOpen) {
+              targetPanel.classList.add('show');
+              btn.classList.remove('collapsed');
+              btn.setAttribute('aria-expanded', 'true');
+            }
+          });
+        });
+      }
+
+      // Modal de Reserva Rápida
+      var modalEl = document.getElementById('modalReserva');
+      var resPlanoEl = document.getElementById('resPlano');
+      var resPessoasEl = document.getElementById('resPessoas');
+      var resTotalEl = document.getElementById('resTotal');
+
+      function atualizarTotalReserva() {
+        if (!resPlanoEl || !resPessoasEl || !resTotalEl) return;
+        var selectedOption = resPlanoEl.options[resPlanoEl.selectedIndex];
+        var price = selectedOption ? parseInt(selectedOption.getAttribute('data-price') || '349', 10) : 349;
+        var people = Math.max(1, parseInt(resPessoasEl.value || '1', 10) || 1);
+        resTotalEl.textContent = `${price * people}€`;
+      }
+
+      function abrirModalReserva(planoOpcional) {
+        if (!modalEl) return;
+        if (planoOpcional && resPlanoEl) {
+          resPlanoEl.value = planoOpcional;
+        }
+        atualizarTotalReserva();
+        modalEl.classList.add('show');
+        modalEl.setAttribute('aria-hidden', 'false');
+      }
+
+      function fecharModalReserva() {
+        if (!modalEl) return;
+        modalEl.classList.remove('show');
+        modalEl.setAttribute('aria-hidden', 'true');
+      }
+
+      document.querySelectorAll('[data-bs-target="#modalReserva"]').forEach(function (trigger) {
+        trigger.addEventListener('click', function () {
+          var plan = trigger.getAttribute('data-plan');
+          abrirModalReserva(plan);
+        });
+      });
+
+      if (modalEl) {
+        modalEl.querySelectorAll('[data-bs-dismiss="modal"]').forEach(function (closeBtn) {
+          closeBtn.addEventListener('click', fecharModalReserva);
+        });
+        modalEl.addEventListener('click', function (e) {
+          if (e.target === modalEl) fecharModalReserva();
+        });
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape' && modalEl.classList.contains('show')) {
+            fecharModalReserva();
+          }
+        });
+      }
+
+      if (resPlanoEl) resPlanoEl.addEventListener('change', atualizarTotalReserva);
+      if (resPessoasEl) resPessoasEl.addEventListener('input', atualizarTotalReserva);
+
+      var formReserva = document.getElementById('formReserva');
+      if (formReserva) {
+        formReserva.addEventListener('submit', function (e) {
+          e.preventDefault();
+          var emailInput = document.getElementById('resEmail');
+          var destinoInput = document.getElementById('resDestino');
+          if (!emailInput) return;
+          var emailVal = emailInput.value.trim();
+          var emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal);
+          emailInput.classList.toggle('is-invalid', !emailValid);
+          emailInput.classList.toggle('is-valid', emailValid);
+          if (!emailValid) return;
+
+          var planoEscolhido = resPlanoEl ? resPlanoEl.value : 'Família';
+          var destinoEscolhido = destinoInput ? destinoInput.value : 'Lisboa';
+          var totalTxt = resTotalEl ? resTotalEl.textContent : '';
+          fecharModalReserva();
+          formReserva.reset();
+          emailInput.classList.remove('is-valid', 'is-invalid');
+          atualizarTotalReserva();
+          mostrarToast(`Pré-reserva registada: ${planoEscolhido} para ${destinoEscolhido} (${totalTxt}).`);
+        });
+      }
+
+      // Formulário de Pedido de Proposta
+      var formProposta = document.getElementById('formProposta');
+      if (formProposta) {
+        formProposta.addEventListener('submit', function (e) {
+          e.preventDefault();
+          var nome = document.getElementById('propNome');
+          var email = document.getElementById('propEmail');
+          var destino = document.getElementById('propDestino');
+          var pessoas = document.getElementById('propPessoas');
+          var mensagem = document.getElementById('propMensagem');
+          var termos = document.getElementById('propTermos');
+          var sucesso = document.getElementById('propostaSucesso');
+          if (!nome || !email || !destino || !pessoas || !mensagem || !termos) return;
+
+          var okNome = nome.value.trim().length >= 2;
+          var okEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim());
+          var okDestino = destino.value.trim() !== '';
+          var numPessoas = parseInt(pessoas.value || '0', 10);
+          var okPessoas = !isNaN(numPessoas) && numPessoas >= 1 && numPessoas <= 50;
+          var okMensagem = mensagem.value.trim().length >= 5;
+          var okTermos = termos.checked;
+
+          var pares = [
+            [nome, okNome],
+            [email, okEmail],
+            [destino, okDestino],
+            [pessoas, okPessoas],
+            [mensagem, okMensagem],
+            [termos, okTermos]
+          ];
+
+          var tudoValido = true;
+          pares.forEach(function (par) {
+            par[0].classList.toggle('is-invalid', !par[1]);
+            par[0].classList.toggle('is-valid', par[1]);
+            if (!par[1]) tudoValido = false;
+          });
+
+          if (!tudoValido) {
+            if (sucesso) sucesso.classList.add('d-none');
+            return;
+          }
+
+          if (sucesso) sucesso.classList.remove('d-none');
+          mostrarToast(`Proposta para ${destino.value} (${numPessoas} viajantes) enviada com sucesso!`);
+          formProposta.reset();
+          pares.forEach(function (par) {
+            par[0].classList.remove('is-valid', 'is-invalid');
+          });
+        });
+      }
+
+      // Formulário de Newsletter no rodapé
+      var formNewsletter = document.getElementById('formNewsletter');
+      if (formNewsletter) {
+        formNewsletter.addEventListener('submit', function (e) {
+          e.preventDefault();
+          var emailInput = document.getElementById('newsletterEmail');
+          var feedback = document.getElementById('newsletterFeedback');
+          if (!emailInput || !feedback) return;
+          var val = emailInput.value.trim();
+          var valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
+          emailInput.classList.toggle('is-invalid', !valid);
+          emailInput.classList.toggle('is-valid', valid);
+          if (!valid) {
+            feedback.textContent = 'Introduza um endereço de email válido.';
+            return;
+          }
+          feedback.textContent = `Subscrição confirmada para ${val}.`;
+          mostrarToast('Subscrição da newsletter CESAE Viagens confirmada!');
+          formNewsletter.reset();
+          emailInput.classList.remove('is-valid', 'is-invalid');
+        });
+      }
+
+      // Botões de redes sociais no rodapé
+      document.querySelectorAll('[data-social]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var rede = btn.getAttribute('data-social') || 'Redes Sociais';
+          mostrarToast(`CESAE Viagens no ${rede}: @cesaeviagens`);
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
