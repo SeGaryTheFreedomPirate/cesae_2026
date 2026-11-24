@@ -1,41 +1,21 @@
 package FichaPratica07;
 
-import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.PrintWriter; // FUNÇÕES A IMPORTAR
-import java.util.Scanner;
+
+import static FichaPratica07.Biblioteca_Ficheiros.lerFicheiro;
 
 public class Ex01 {
+    public static void main(String[] args) throws FileNotFoundException {
 
-//ESCRITA FICHEIROS
-    //FileNotFoundException
+        lerFicheiro("Files07/exercicio_01.txt");
 
+        System.out.println();
 
-    public static void usingScanner()throws FileNotFoundException EscreverFicheiro {
+        lerFicheiro("Files07/exercicio_01_Alternativa01.txt");
 
+        System.out.println();
 
-        File ficheiro = new File("exemplo.txt");   //abre o ficheiro
-
-
-        PrintWriter escrita = new PrintWriter(ficheiro);
-        PrintWriter.println(fileContent);
-printWriter.println("É a minha UFCD Favorita");
-
-
-    printWriter.close(); //linha que grava conteudo no ficheiro
+        lerFicheiro("Files07/exercicio_01_Alternativa02.txt");
     }
-
-    //SCANNER LEITURA
-    Scanner SF = new Scanner(ficheiro)
-    System.out.println
-
-            String.split()
-
-    hasNext();
 }
-
-
-
-
-
 
