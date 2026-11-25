@@ -1,20 +1,14 @@
 package FichaPratica07;
 
-import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.PrintWriter;
+
+import static FichaPratica07.Biblioteca_Ficheiros.criarFicheiro;
 
 //criar e escrever dentro de ficheiro
 public class Ex02 {
     public static void main(String[] args) throws FileNotFoundException {
 
-        File ficheiro = new File("Files07/testabc.txt");
-        PrintWriter printWriter = new PrintWriter(ficheiro);
+        criarFicheiro("Files07/ola.txt","funciona");
 
-
-
-
-        // FALTA LINHAS DE ESCRITA
-        printWriter.close();
     }
 }

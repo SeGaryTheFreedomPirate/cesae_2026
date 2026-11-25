@@ -225,8 +225,6 @@ public class Library {
         return true;
     }
 
-
-    //imprime mas nao faz return de dados // html pode ser usado nos comentarios
 // comentar sempre /** passar o rato nas funções
 //separar os ciclos de leitura e de impressão
 //IMPRIMIR 100 ENTERS NA CONSOLA
