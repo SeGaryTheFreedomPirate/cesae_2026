@@ -129,10 +129,10 @@ public class Biblioteca_Ficheiros {
      * @return matriz preenchida
      * @throws FileNotFoundException
      */
-    public static String[][] lerFicheiroParaMatriz(String caminho) throws FileNotFoundException {
+    public static String[][] lerFicheiroParaMatriz(String caminho,String separador) throws FileNotFoundException {
 
         int numeroLinhasFicheiro = contarLinhasFicheiro(caminho);
-        int numeroColunasFicheiro = contarColunasFicheiro(caminho, ",");
+        int numeroColunasFicheiro = contarColunasFicheiro(caminho,separador);
 
         String[][] matriz = new String[numeroLinhasFicheiro - 1][numeroColunasFicheiro];
 
@@ -149,7 +149,7 @@ public class Biblioteca_Ficheiros {
 
         while (sc.hasNextLine()) {
             String linhaAtual = sc.nextLine();
-            String[] linhaSeparada = linhaAtual.split(",");
+            String[] linhaSeparada = linhaAtual.split(separador);
 
             for (int i = 0; i < linhaSeparada.length; i++) {
                 matriz[linhaPreencher][i] = linhaSeparada[i];
@@ -254,16 +254,8 @@ public class Biblioteca_Ficheiros {
     }
 
 
-
 }
-
-//integerdoubleparse.int
-//fori
-//fazer funções  na biblioteca dos ex que não fiz
-//[0].lenght dá as colunas .lenght dá as linhas
-//rename refactor apagar
-//hasNext "VERIFICA E AVANÇA? APENAS" != next " ELE VAI AVANÇAR PARA OS PROXIMOS DADOS"
-//ESCRITA FICHEIROS
+// if random perguntas repetidas
 //FileNotFoundException
 // source é codigo sem ficheiros ideal e estar no root quando sao poucos melhor uma pasta para files
 // public static void usingScanner()throws FileNotFoundException EscreverFicheiro {
@@ -277,4 +269,3 @@ public class Biblioteca_Ficheiros {
 //System.out.println
 //String.split()
 //hasNext();
-//import java.io.File;import java.io.FileNotFoundException; import java.io.PrintWriter;import java.util.Scanner; //FUNÇÕES A IMPORTAR
