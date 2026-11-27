@@ -1,12 +1,15 @@
 package Funcoes;
 
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+import static Funcoes.Library_fReutilizaveis_Coments.*;
+
 public class FuncoesCliente {
-    public static void menuCliente() {
+    public static void menuCliente() throws FileNotFoundException {
 
         Scanner input = new Scanner(System.in);
-
+        String nome, email, telefone;
         int opcao;
 
         do {
@@ -28,24 +31,39 @@ public class FuncoesCliente {
             switch (opcao) {
 
                 case 1:
+                    System.out.print("Nome: ");
+                    nome = input.next();
+                    System.out.print("Telefone: ");
+                    telefone = input.next();
+                    System.out.print("Email: ");
+                    email = input.next();
+                    System.out.println("Cliente inserido com sucesso!");
+                    System.out.println(nome);
+                    System.out.println(telefone);
+                    System.out.println(email);
                     break;
 
                 case 2:
+                    imprimirFicheiro("GrandeEcra_Ficheiros/GrandeEcra_Cartaz.txt");
                     break;
 
                 case 3:
+                    pesquisarFilmesPorGenero(input);
                     break;
 
                 case 4:
+                    printSala();
                     break;
 
                 case 5:
                     break;
 
                 case 6:
+                    recomendarFilmes(input);
                     break;
 
                 case 7:
+                    quiz(input);
                     break;
 
                 case 0:

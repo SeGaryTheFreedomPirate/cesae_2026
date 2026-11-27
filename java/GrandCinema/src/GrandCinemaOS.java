@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 import static Funcoes.FuncoesAdmin.menuAdmin;
 import static Funcoes.FuncoesCliente.menuCliente;
+import static Funcoes.Library_fReutilizaveis_Coments.imprimirFicheiro;
 import static Funcoes.Library_fReutilizaveis_Coments.lerFicheiroParaMatriz;
 
 public class GrandCinemaOS {
@@ -61,6 +62,7 @@ public class GrandCinemaOS {
             }
 
         } while (opcao != 0);
+        imprimirFicheiro("GrandeEcra_Ficheiros/GrandeEcra_Copyright.txt");
     }
 
     public static void main(String[] args) throws FileNotFoundException {
@@ -68,4 +70,4 @@ public class GrandCinemaOS {
     }
 }
 
-//quiz = ex9
+

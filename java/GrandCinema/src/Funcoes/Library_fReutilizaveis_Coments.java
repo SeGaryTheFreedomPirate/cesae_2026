@@ -2,6 +2,8 @@ package Funcoes;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.util.Random;
 import java.util.Scanner;
 
 import static Funcoes.FuncoesAdmin.menuAdmin;
@@ -277,7 +279,7 @@ public class Library_fReutilizaveis_Coments {
         for (int i = 0; i < matrizSala.length; i++) {
             // Percorre cada coluna (lugar) dentro da linha i
             for (int j = 0; j < matrizSala[i].length; j++) {
-                if (matrizSala[i][j] != "0") {
+                if (matrizSala[i][j].equals("1")) {
                     lugares++;
                 }
             }
@@ -285,6 +287,31 @@ public class Library_fReutilizaveis_Coments {
 
         return lugares;
     }
+
+    /**
+     * Função que lê e retorna o total de lugares de uma sala
+     *
+     * @param matrizSala
+     * @return
+     */
+    public static int totalLugares(String[][] matrizSala) {
+
+        int lugares = 0;
+        //percorrer matrizes com ciclos aninhados
+
+        // Percorre cada linha da matriz
+        for (int i = 0; i < matrizSala.length; i++) {
+            // Percorre cada coluna (lugar) dentro da linha i
+            for (int j = 0; j < matrizSala[i].length; j++) {
+                if (matrizSala[i][j].equals("0") || matrizSala[i][j].equals("1")) {
+                    lugares++;
+                }
+            }
+        }
+
+        return lugares;
+    }
+
 
     /**
      * Leitura de Receita de cada Sala
@@ -356,6 +383,34 @@ public class Library_fReutilizaveis_Coments {
 
     }
 
+    /**
+     * usa pw para colocar o que foi guardado numa matriz (tamanho) num ficheiro (WARNING pw limpa tudo, precisamos tb de print ";")
+     *
+     * @param caminho
+     * @param matrizSala
+     * @throws FileNotFoundException
+     */
+    public static void resetLugaresFicheiro(String caminho, String[][] matrizSala) throws FileNotFoundException {
+
+        PrintWriter pw = new PrintWriter((caminho));
+        //percorrer matrizes com ciclos aninhados
+
+        // Percorre cada linha da matriz
+        for (int i = 0; i < matrizSala.length; i++) {
+            // Percorre cada coluna (lugar) dentro da linha i
+            for (int j = 0; j < matrizSala[i].length; j++) {
+                pw.print("0");
+                if (j < matrizSala[i].length - 1) {
+                    pw.print(";");
+                }
+
+
+            }
+            pw.println();
+        }
+        pw.close();
+    }
+
 
     public static void topFilmes() throws FileNotFoundException {
         String[][] matrizBilhetes = lerFicheiroParaMatrizSemCabecalho("GrandeEcra_Ficheiros/GrandeEcra_Bilhetes.csv", ";");
@@ -369,54 +424,330 @@ public class Library_fReutilizaveis_Coments {
 
             }
         }
-    }
+    } // por falta de tempo desisti desta e da reserva de lugares//
 
-    public static void resetSala() {
+    /**
+     * submenu de limpeza de salas
+     *
+     * @throws FileNotFoundException
+     */
+    public static void resetSala() throws FileNotFoundException {
 
         Scanner input = new Scanner(System.in);
         int opcao, lugaresLibres = 0, totalLugares = 0;
         String confirm;
 
 
-        System.out.println(" 1 – Mar | 2 – Terra | 3 – Sol ");
+        System.out.println(" 1 – Mar | 2 – Sol | 3 – Terra ");
         System.out.println("Que sala pretende resetar?");
         opcao = input.nextInt();
-                   // FAZER FUNÇÃO DE RESET LEITURA DE LENGHT DE MATRIZ E LEITURA DE QUANTOS LUGARES LIBERTADOS
+        // FAZER FUNÇÃO DE RESET LEITURA DE LENGHT DE MATRIZ E LEITURA DE QUANTOS LUGARES LIBERTADOS
         switch (opcao) {
 
             case 1:
                 System.out.println("Confirma a reposicao da lotacao? (S/N):");
                 confirm = input.next();
-                if (confirm.equals("S")) { // reset sala
+                if (confirm.equals("S")) {
+                    lugaresLibres = lugaresVendidos(lerFicheiroParaMatriz("GrandeEcra_Ficheiros/Sala_Mar.csv", ";"));// lugares libertados usando 2 funções aninhadas uma lê ficheiro para matriz outra retorna quantos lugares vamos libertar
                     System.out.println(lugaresLibres + " lugares libertados.");
-                    System.out.println("Sala " + opcao + " :" + totalLugares + " lugares disponiveis de " + totalLugares);
+                    totalLugares = totalLugares(lerFicheiroParaMatriz("GrandeEcra_Ficheiros/Sala_Mar.csv", ";"));
+                    System.out.println("Sala " + opcao + " : " + totalLugares + " lugares disponiveis de " + totalLugares);
+                    resetLugaresFicheiro("GrandeEcra_Ficheiros/Sala_Mar.csv", lerFicheiroParaMatriz("GrandeEcra_Ficheiros/Sala_Mar.csv", ";"));
                 }
                 break;
 
             case 2:
                 System.out.println("Confirma a reposicao da lotacao? (S/N):");
                 confirm = input.next();
-                if (confirm.equals("S")) { // reset sala
+                if (confirm.equals("S")) {
+                    lugaresLibres = lugaresVendidos(lerFicheiroParaMatriz("GrandeEcra_Ficheiros/Sala_Sol.csv", ";"));
                     System.out.println(lugaresLibres + " lugares libertados.");
-                    System.out.println("Sala " + opcao + " :" + totalLugares + " lugares disponiveis de " + totalLugares);
+                    totalLugares = totalLugares(lerFicheiroParaMatriz("GrandeEcra_Ficheiros/Sala_Sol.csv", ";"));
+                    System.out.println("Sala " + opcao + " : " + totalLugares + " lugares disponiveis de " + totalLugares);
+                    resetLugaresFicheiro("GrandeEcra_Ficheiros/Sala_Sol.csv", lerFicheiroParaMatriz("GrandeEcra_Ficheiros/Sala_Sol.csv", ";"));
                 }
                 break;
             case 3:
                 System.out.println("Confirma a reposicao da lotacao? (S/N):");
                 confirm = input.next();
-                if (confirm.equals("S")) { // reset sala                                                                     break;
+                if (confirm.equals("S")) {
+                    lugaresLibres = lugaresVendidos(lerFicheiroParaMatriz("GrandeEcra_Ficheiros/Sala_Terra.csv", ";"));
                     System.out.println(lugaresLibres + " lugares libertados.");
-                    System.out.println("Sala " + opcao + " :" + totalLugares + " lugares disponiveis de " + totalLugares);
+                    totalLugares = totalLugares(lerFicheiroParaMatriz("GrandeEcra_Ficheiros/Sala_Terra.csv", ";"));
+                    System.out.println("Sala " + opcao + " : " + totalLugares + " lugares disponiveis de " + totalLugares);
+                    resetLugaresFicheiro("GrandeEcra_Ficheiros/Sala_Terra.csv", lerFicheiroParaMatriz("GrandeEcra_Ficheiros/Sala_Terra.csv", ";"));
                 }
+                break;
+
+            default:
+                System.out.println("Opção de sala inválida.");
                 break;
         }
 
 
     }
 
+    /**
+     * Imprimir totalidade de ficheiro na consola
+     *
+     * @param caminho
+     * @throws FileNotFoundException
+     */
+    public static void imprimirFicheiro(String caminho) throws FileNotFoundException {
+
+        File ficheiro = new File(caminho);
+        Scanner sc = new Scanner(ficheiro);
+
+        while (sc.hasNextLine()) {
+            String linha = sc.nextLine();
+            System.out.println(linha);
+        }
+    }
+
+    /**
+     * Pesquisar filmes por input de utilizador + impressão de linha correspondente
+     *
+     * @param input
+     * @throws FileNotFoundException
+     */
+    public static void pesquisarFilmesPorGenero(Scanner input) throws FileNotFoundException {
+
+        input.nextLine();
+
+        System.out.println("\n***** PESQUISAR FILMES POR GÉNERO *****");
+        System.out.print("Introduza o género desejado: ");
+        String generoProcurado = input.nextLine();
+
+        File ficheiro = new File("GrandeEcra_Ficheiros/GrandeEcra_Filmes.csv");
+        Scanner sc = new Scanner(ficheiro);
+
+        sc.nextLine();
+
+        int contadorFilmes = 0;
+        System.out.println("\n--- FILMES ENCONTRADOS ---");
+
+        while (sc.hasNextLine()) {
+            String linha = sc.nextLine();
+            String[] filmes = linha.split(";");
+            String genero = filmes[2];
+            if (genero.equalsIgnoreCase(generoProcurado)) {
+                System.out.println(linha);
+                contadorFilmes++;
+            }
+        }
+        if (contadorFilmes == 0) {
+            System.out.println(" Nenhum filme encontrado para o género: " + generoProcurado);
+        }
+        sc.close();
+
+
+    }
+
+    /**
+     * Print matriz de uma sala com espaços X && O
+     *
+     * @param matrizSala
+     */
+    public static void printMatrizXO(String[][] matrizSala) {
+
+        for (int i = 0; i < matrizSala.length; i++) {
+            for (int j = 0; j < matrizSala[i].length; j++) {
+                if (matrizSala[i][j].equals("1")) {
+                    System.out.print("X ");
+                } else {
+                    System.out.print("O ");
+                }
+            }
+            System.out.println();
+        }
+
+
+    }
+
+    /**
+     * Print Sala mais ocupação
+     *
+     * @throws FileNotFoundException
+     */
+    public static void printSala() throws FileNotFoundException {
+
+        Scanner input = new Scanner(System.in);
+        int opcao, dispon = 0;
+        double taxa;
+        String[][] matrizMar = lerFicheiroParaMatriz("GrandeEcra_Ficheiros/Sala_Mar.csv", ";");
+        String[][] matrizSol = lerFicheiroParaMatriz("GrandeEcra_Ficheiros/Sala_Sol.csv", ";");
+        String[][] matrizTerra = lerFicheiroParaMatriz("GrandeEcra_Ficheiros/Sala_Terra.csv", ";");
+
+        System.out.println(" 1 – Mar | 2 – Sol | 3 – Terra ");
+        System.out.println("Que sala pretende consultar a ocupação?");
+        opcao = input.nextInt();
+        switch (opcao) {
+
+            case 1:
+                System.out.println("SALA MAR");
+                System.out.println("ECRA");
+                System.out.println("==========================");
+
+
+                for (int j = 0; j < matrizMar[0].length; j++) {
+                    System.out.print((j + 1) + " ");
+                }
+
+                System.out.println();
+                printMatrizXO(matrizMar);
+                System.out.println();
+
+                System.out.println("O - Disponivel | X - Ocupado ");
+                dispon = totalLugares(matrizMar) - lugaresVendidos(matrizMar);
+                System.out.println("Lotação|" + totalLugares(matrizMar) + " Disponiveis|" + dispon + " Ocupados|" + lugaresVendidos(matrizMar));
+                System.out.println("O - Disponivel | X - Ocupado ");
+                taxa = ((double) lugaresVendidos(matrizMar) / totalLugares(matrizMar)) * 100;
+                System.out.println("Taxa de ocupação: " + taxa + "%");
+                break;
+
+            case 2:
+                System.out.println("SALA SOL");
+                System.out.println("ECRA");
+                System.out.println("==========================");
+
+                for (int j = 0; j < matrizSol[0].length; j++) {
+                    System.out.print((j + 1) + " ");
+                }
+
+                System.out.println();
+                printMatrizXO(matrizSol);
+                System.out.println();
+
+                System.out.println("O - Disponivel | X - Ocupado ");
+                dispon = totalLugares(matrizSol) - lugaresVendidos(matrizSol);
+                System.out.println("Lotação|" + totalLugares(matrizSol) + " Disponiveis|" + dispon + " Ocupados|" + lugaresVendidos(matrizSol));
+                System.out.println("O - Disponivel | X - Ocupado ");
+                taxa = ((double) lugaresVendidos(matrizSol) / totalLugares(matrizSol)) * 100;
+                System.out.println("Taxa de ocupação: " + taxa + "%");
+                break;
+            case 3:
+                System.out.println("SALA TERRA");
+                System.out.println("ECRA");
+                System.out.println("==========================");
+                for (int j = 0; j < matrizTerra[0].length; j++) {
+                    System.out.print((j + 1) + " ");
+                }
+
+                System.out.println();
+                printMatrizXO(matrizTerra);
+                System.out.println();
+
+                System.out.println("O - Disponivel | X - Ocupado ");
+                dispon = totalLugares(matrizTerra) - lugaresVendidos(matrizTerra);
+                System.out.println("Lotação|" + totalLugares(matrizTerra) + " Disponiveis|" + dispon + " Ocupados|" + lugaresVendidos(matrizTerra));
+                System.out.println("O - Disponivel | X - Ocupado ");
+                taxa = ((double) lugaresVendidos(matrizTerra) / totalLugares(matrizTerra)) * 100;
+                System.out.println("Taxa de ocupação: " + taxa + "%");
+                break;
+
+            default:
+                System.out.println("Opção de sala inválida.");
+                break;
+        }
+
+    } //não me lembro se existe alguma forma de correr e imprimir letras imprimi a sala sem as letras
+
+    public static void recomendarFilmes(Scanner input) throws FileNotFoundException {
+        input.nextLine();
+        System.out.println("***** RECOMENDAR FILMES *****");
+        System.out.print("Introduza a sua idade: ");
+        int idadeCliente = input.nextInt();
+        input.nextLine();
+        System.out.print("Introduza o género preferido: ");
+        String generoPreferido = input.nextLine();
+        System.out.print("Introduza o tempo disponível (em minutos): ");
+        int tempoDisponivel = input.nextInt();
+        System.out.print("Introduza o ano mínimo de lançamento: ");
+        int anoMinimo = input.nextInt();
+
+
+    } // fiquei no inicio
+
+    public static void quiz(Scanner input) throws FileNotFoundException {
+        System.out.println("\n***** QUIZ CINEMATOGRÁFICO *****");
+        System.out.println("1 - Curta-Metragem (5 perguntas)");
+        System.out.println("2 - Longa-Metragem (10 perguntas)");
+        System.out.println("3 - Saga Completa (20 perguntas)");
+        System.out.print("Escolha a modalidade: ");
+        int opcao = input.nextInt();
+        int maxPerguntas, totalPerguntas;
+        int certas = 0;
+        int erradas = 0;
+
+        switch (opcao) {
+            case 1:
+                maxPerguntas = 5;
+
+                break;
+            case 2:
+                maxPerguntas = 10;
+                break;
+            case 3:
+                maxPerguntas = 20;
+                break;
+            default:
+                System.out.println("Opção inválida!");
+                return;
+        }
+
+        String[][] quiz = lerFicheiroParaMatrizSemCabecalho("GrandeEcra_Ficheiros/GrandeEcra_Quiz.csv", ";");
+        totalPerguntas = quiz.length;
+
+        Random random = new Random();
+
+        for (int i = 1; i <= maxPerguntas; i++) {
+
+            int sorteio = random.nextInt(totalPerguntas);
+
+            System.out.println("\n Pergunta " + i + ": " + quiz[sorteio][0]);
+            System.out.println("1 " + quiz[sorteio][1]);
+            System.out.println("2 " + quiz[sorteio][2]);
+            System.out.println("3 " + quiz[sorteio][3]);
+            System.out.println("4 " + quiz[sorteio][4]);
+            System.out.print("Resposta: ");
+            int respostaUtilizador = input.nextInt();
+
+            int respostaCerta = Integer.parseInt(quiz[sorteio][5]);
+
+            if (respostaUtilizador == respostaCerta) {
+                System.out.println("Resposta Certa");
+                certas++;
+            } else {
+                System.out.println("Resposta Errada, a resposta certa era a " + respostaCerta);
+                erradas++;
+            }
+        }
+
+        double taxa = ((double) certas / maxPerguntas) * 100;
+        String points;
+
+        if (taxa == 100) {
+            points = "Oscar de ouro";
+        } else if (taxa >= 75) {
+            points = "Spielberg da freguesia";
+        } else if (taxa >= 50) {
+            points = "Cinefilo de bancada";
+        } else if (taxa >= 25) {
+            points = "So ve ao domingo à tarde";
+        } else {
+            points = "veio pelas pipocas";
+        }
+        System.out.println("\n***** RESULTADO DO QUIZ *****");
+        System.out.println("Certas| " + certas + " | Erradas| " + erradas);
+        System.out.println("Percentagem de sucesso: " + taxa + "%");
+        System.out.println("Classificação| " + points);
+    }  // não sei como evitar que a mesma pergunta apareça
 
 }
 
+//quiz = ex9
+//equalsIgnoreCase() devia ter colocado esta função em muitos locais mas agora já não me lembro onde
+//.equalignorecase resolve se letras estao maisculas ou minusculas
 // .5 e marcação de bilhetes deixar para o fim
 //input tem de ser nextline para apanhar o filme por ter espaços
 // forcar com sout a comunicação com a consola para perceber porque nao funciona
